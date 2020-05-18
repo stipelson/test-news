@@ -15,7 +15,7 @@ function initializeDropdowns() {
   }
 }
 
-function closeModal(node) {
+function closeAlert(node) {
   var target = node.getAttribute('data-target');
   var nodeTarget = document.getElementById(target);
   if (nodeTarget) nodeTarget.style.display = 'none';

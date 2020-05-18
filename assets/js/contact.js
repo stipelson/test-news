@@ -64,67 +64,63 @@ function toJSONString( form ) {
 function vaidateRequired(inputs) {
   var errors = 0;
   for (let index = 0; index < inputs.length; index++) {
-    var element = inputs[index];
+    var input = inputs[index];
     
-    if (element.id) {
-      var elementError = document.querySelector('#'+ element.id +' + span.error');
-      
-
-      if (element.value.length === 0 || !element.value) {
-        element.className = 'form-input invalid';
-        showError(elementError, 'This input is required.');
+    if (input.id) {
+      if (input.value.length === 0 || !input.value) {
+        showError(input, 'This input is required.');
         errors++;
       } else {
-        elementError.innerHTML = '';
-        elementError.className = 'error';
-        element.className = 'form-input valid';
+        showValid(input);
       }
     } 
   }
   return errors >= 1 ? false : true;
 }
 
-function validateEmail(element) {
+function validateEmail(input) {
   var emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  if (element.id) {
-    var test = emailRegExp.test(element.value);
-    var elementError = document.querySelector('#'+ element.id +' + span.error');
+  if (input.id) {
+    var test = emailRegExp.test(input.value);
 
     if (test) {
-      element.className = 'form-input valid';
-      elementError.innerHTML = "";
-      elementError.className = "error";
+      showValid(input);
       return true;
     } else {
-      element.className = 'form-input invalid';
-      showError(elementError, 'You need to enter an e-mail address.');
+      showError(input, 'You need to enter an e-mail address.');
       return false;
     }
   }
 }
 
-function validatePhone(element) {
+function validatePhone(input) {
   var phoneRegExp = /^[2-9]\d{2}-\d{3}-\d{4}$/;
 
-  if (element.id) {
-    var test = phoneRegExp.test(element.value);
-    var elementError = document.querySelector('#'+ element.id +' + span.error');
+  if (input.id) {
+    var test = phoneRegExp.test(input.value);
 
     if (test) {
-      element.className = 'form-input valid';
-      elementError.innerHTML = "";
-      elementError.className = 'error';
+      showValid(input);
       return true;
     } else {
-      element.className = 'form-input invalid';
-      showError(elementError, 'You need to enter an valid phone, ex: 800-555-5555.');
+      showError(input, 'You need to enter an valid phone, ex: 800-555-5555.');
       return false;
     }
   }
 }
 
-function showError(span, message) {
-  span.className = 'error active';
-  span.innerHTML = message;
+function showValid(input) {
+  var inputError = document.querySelector('#'+ input.id +' + span.error');
+  input.className = 'form-input valid';
+  inputError.innerHTML = "";
+  inputError.className = 'error';
+}
+
+function showError(input, message) {
+  var inputError = document.querySelector('#'+ input.id +' + span.error');
+
+  input.className = 'form-input invalid';
+  inputError.className = 'error active';
+  inputError.innerHTML = message;
 }
