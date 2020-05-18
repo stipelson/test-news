@@ -1,5 +1,5 @@
 // Get params from url
-var params = getParams(window.location.href);
+const params = getParams(window.location.href);
 var currentPage = 1;
 
 function getNews() {

@@ -1,3 +1,6 @@
+var modal = document.getElementById("submit-modal");
+var closeModal = document.getElementsByClassName("close-modal")[0];
+
 // Functions
 
 var toggleDropdown = function() {
@@ -33,6 +36,10 @@ function getParams(url) {
 
 // Events
 
+closeModal.onclick = function() {
+  modal.style.display = "none";
+}
+
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropdown-trigger')) {
@@ -44,5 +51,10 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
+  }
+
+  // Close the modal
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }

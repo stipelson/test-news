@@ -102,19 +102,21 @@
       <div class="container">
         <h2 class="title text-center">Contact Us</h2>
         <div class="card">
-          <form action="">
+          <form method="post" id="form-contact" onsubmit="return submitContact(this);">
             
             <div class="row my-6">
               <div class="col-half">
                 <div class="form-section">
                   <label class="form-label" for="first_name">First Name</label>
-                  <input tabindex="1" class="form-input" type="text" name="first_name">
+                  <input id="input-first-name" tabindex="1" class="form-input" type="text" name="first_name">
+                  <span class="error"></span>
                 </div>
               </div>
               <div class="col-half">
                 <div class="form-section">
                   <label class="form-label" for="last_name">Last Name</label>
-                  <input tabindex="2" class="form-input" type="text" name="last_name">
+                  <input id="input-last-name" tabindex="2" class="form-input" type="text" name="last_name">
+                  <span class="error"></span>
                 </div>
               </div>
             </div>
@@ -123,13 +125,15 @@
               <div class="col-half">
                 <div class="form-section">
                   <label class="form-label" for="email">Email</label>
-                  <input tabindex="3" class="form-input" type="email" name="email">
+                  <input id="input-email" tabindex="3" class="form-input" type="text" name="email">
+                  <span class="error"></span>
                 </div>
               </div>
               <div class="col-half">
                 <div class="form-section">
                   <label class="form-label" for="phone_number">Phone Number</label>
-                  <input tabindex="4" class="form-input" type="phone" name="phone_number">
+                  <input id="input-phone" tabindex="4" class="form-input" type="phone" name="phone_number">
+                  <span class="error"></span>
                 </div>
               </div>
             </div>
@@ -138,7 +142,8 @@
               <div class="col">
                 <div class="form-section">
                   <label class="form-label" for="message">Message</label>
-                  <textarea tabindex="5" class="form-input" type="text" name="message" rows="3"></textarea>
+                  <textarea id="input-message" tabindex="5" class="form-input" type="text" name="message" rows="3"></textarea>
+                  <span class="error"></span>
                 </div>
               </div>
             </div>
@@ -148,7 +153,7 @@
                 <div class="form-section">
                   <label class="form-checkbox-label">
                     Send me emails about breaking news and promotions.
-                    <input tabindex="7" name="email_subscription" type="checkbox">
+                    <input tabindex="7" name="email_subscription" type="checkbox" value="true">
                     <span class="form-checkmark"></span>
                   </label>
                 </div>
@@ -164,11 +169,23 @@
           </form>
         </div>
       </div>
+
+      <!-- Modal -->
+      <div id="submit-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close close-modal">&times;</span>
+          <p><code id="modal-content"></code></p>
+        </div>
+      
+      </div>      
     </section>
   
     <script src="./assets/js/site.js"></script>
     <script src="./assets/js/requests.js"></script>
     <script src="./assets/js/news.js"></script>
+    <script src="./assets/js/contact.js"></script>
     <script>
       initializeDropdowns();
       getNews();
