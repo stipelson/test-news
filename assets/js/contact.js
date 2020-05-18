@@ -17,15 +17,9 @@ function validateForm(form) {
   // No submit the form, show modal.
   var valid = true;
 
-  if (!vaidateRequired([firstName, lastName, email, phoneNumber, message])) {
-    valid = false;
-  }
-
-  if (!validateEmail(email)) {
-    valid = false;
-  }
-
-  if (!validatePhone(phoneNumber)) {
+  if (!vaidateRequired([firstName, lastName, email, phoneNumber, message]) || 
+    !validateEmail(email) || 
+    !validatePhone(phoneNumber)) {
     valid = false;
   }
 
