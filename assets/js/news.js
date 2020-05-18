@@ -41,8 +41,7 @@ function drawNews(articles) {
       imgElement.src = article.urlToImage;
       imgElement.tag = article.title;
 
-      titleElement.className = 'list-item-title';
-      descriptionElement.className = 'list-item-description';
+      titleElement.className = 'text-semi-bold';
 
       linkElement.appendChild(imgElement);
       linkElement.appendChild(titleElement);

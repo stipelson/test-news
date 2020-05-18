@@ -1,0 +1,33 @@
+/* Banner */
+
+.banner {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-title {
+  margin: 20px 0;
+}
+
+.banner-body {
+  position: absolute;
+  z-index: 2;
+}
+
+.banner-body p {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.09px;
+  line-height: 22px;
+  margin-bottom: 41.5px;
+}
+
+.banner-background {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}

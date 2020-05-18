@@ -1,0 +1,63 @@
+// === BASE === 
+
+h1, h2, h3, h4, h5, p {
+  font-family: $headline-font;
+  color: #1D2121;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: -0.16px;
+  line-height: 41px;
+}
+
+h3 {
+  font-size: 21px;
+  letter-spacing: -0.11px;
+  line-height: 28px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.09px;
+  line-height: 22px;
+}
+
+// === MODIFICATORS ===
+
+.text-semi-bold {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.title-hidden {
+  font-size: 0;
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  clip: rect(1px,1px,1px,1px);
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.text-regular {
+  font-weight: 400;
+}

@@ -1,0 +1,35 @@
+// === MAIN CONTENT ===
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+// === CONTENT GRID ===
+
+.row {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -7px;
+  margin-left: -7px;
+  box-sizing: border-box;
+}
+
+.col, .col-half {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 37px;
+  padding-left: 37px;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-half {
+  flex: 0 0 50%;
+  max-width: 50%;
+}

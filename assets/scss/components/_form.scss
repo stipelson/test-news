@@ -1,0 +1,124 @@
+// === BASE INPUTS ===
+
+.form-section {
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 4.5px;
+  color: #4B5353;
+  font-size: 13px;
+  letter-spacing: -0.07px;
+  line-height: 18px;
+}
+
+.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #D3DBE7;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  padding: 4px;
+}
+
+.form-checkbox-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 54px;
+  cursor: pointer;
+  
+  color: #1D2121;
+  font-size: 16px;
+  letter-spacing: -0.09px;
+  line-height: 24px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.form-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: #FFFFFF;
+  border: 2px solid #BEC6C6;
+  border-radius: 2px;
+}
+
+.form-checkbox-label:hover input ~ .form-checkmark {
+  background-color: #F2F4F8;
+}
+
+.form-checkbox-label input:checked ~ .form-checkmark {
+  background-color: #0073E9;
+  border-color:#0073E9;
+}
+
+.form-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.form-checkbox-label input:checked ~ .form-checkmark:after {
+  display: block;
+}
+
+.form-checkbox-label .form-checkmark:after {
+  left: 6.5px;
+  top: 3.5px;
+  width: 4px;
+  height: 8px;
+  border: solid #FFFFFF;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+// === FORM VALIDATION ===
+
+.form-input.invalid, input:invalid{
+  border: 1px solid #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: #900;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}

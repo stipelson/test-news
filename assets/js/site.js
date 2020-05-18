@@ -1,5 +1,5 @@
 var modal = document.getElementById("submit-modal");
-var closeModal = document.getElementsByClassName("close-modal")[0];
+var closeModal = document.getElementsByClassName("modal-close")[0];
 
 // Functions
 

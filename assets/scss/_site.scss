@@ -1,0 +1,30 @@
+// === MAIN CONTENT ===
+
+body {
+  background: #F2F4F8;
+  font-family: $text-font;
+}
+
+// === NEWS FEED ===
+
+.list-item {
+  text-decoration: none;
+  display: block;
+}
+
+#list-news {
+  padding-top: 1px;
+  padding-bottom: 5px;
+}
+
+#list-news > :nth-last-child(n+3) {
+  margin-bottom: 55px;
+}
+
+.list-item-image {
+  width: 100%;
+  height: 154px;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: 50% 50%;
+}
