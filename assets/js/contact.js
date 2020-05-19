@@ -70,31 +70,28 @@ function validateEmail(input) {
 
   if (input.id) {
     var test = emailRegExp.test(input.value);
-
     if (test) {
       showValid(input);
       return true;
-    } else {
-      showError(input, 'You need to enter an e-mail address.');
-      return false;
     }
+    showError(input, 'You need to enter an e-mail address.');
   }
+  return false;
 }
 
 function validatePhone(input) {
-  var phoneRegExp = /^[2-9]\d{2}\d{3}\d{4}$/;
+  var phoneRegExp = /^[0-9]\d{2}\d{3}\d{4}$/;
 
   if (input.id) {
     var test = phoneRegExp.test(input.value);
-
+    console.log('validate phone', input.value, test)
     if (test) {
       showValid(input);
       return true;
-    } else {
-      showError(input, 'The phone must have 10 numbers, ex: 8005555555.');
-      return false;
     }
+    showError(input, 'The phone must have 10 numbers, ex: 8005555555.');
   }
+  return false;
 }
 
 function showValid(input) {
