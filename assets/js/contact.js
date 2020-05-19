@@ -1,75 +1,68 @@
+function initializeForm() {
+  var form = document.getElementById("form-contact");
+  var inputs = form.elements; 
+
+  for (let index = 0; index < inputs.length; index++) {
+    const input = inputs[index];
+  
+    input.addEventListener('input', function (event) {
+      validateInput(input);
+    });
+  }
+}
+
+function validateInput(input){
+  var valid = true;
+  switch (input.type) {
+    case 'email':
+      valid = validateEmail(input)
+      break;
+    case 'phone':
+    case 'tel':
+      valid = validatePhone(input)
+      break;
+    case 'submit':
+    case 'checkbox':
+      break;
+    default:
+      valid = validateRequired(input);
+      break;
+  }
+  return valid;
+}
+
 function submitContact(form) {
-
-  var valid = validateForm(form);
-
-  if (valid) showModal();
+  try {
+    var valid = validateForm(form);
+    if (valid) showModal(form);
+  } catch (error) {
+    alert(error);
+  }
   
   return false;
 }
 
 function validateForm(form) {
-  var firstName = form["first_name"];
-  var lastName = form["last_name"];
-  var email = form["email"];
-  var phoneNumber = form["phone_number"];
-  var message = form["message"];
-
-  // No submit the form, show modal.
-  var valid = true;
-
-  if (!vaidateRequired([firstName, lastName, email, phoneNumber, message]) || 
-    !validateEmail(email) || 
-    !validatePhone(phoneNumber)) {
-    valid = false;
-  }
-
-  return valid;
-}
-
-function showModal() {
-  var form = document.getElementById("form-contact");
-  var modal = document.getElementById('submit-modal');
-  var modalContent = document.getElementById('modal-content');
-  var formString = toJSONString(form);
-
-  modalContent.innerHTML = formString;
-  modal.style.display = "block";
-}
-
-function toJSONString( form ) {
-  var form = document.getElementById("form-contact");
-  var obj = {};
-  var elements = form.querySelectorAll( "input, select, textarea" );
-  for( var i = 0; i < elements.length; ++i ) {
-    var element = elements[i];
-    var name = element.name;
-    var value = element.value;
-
-    if (element.type === 'checkbox') value = element.checked;
-
-    if( name ) {
-      obj[ name ] = value;
-    }
-  }
-
-  return JSON.stringify( obj );
-}
-
-function vaidateRequired(inputs) {
   var errors = 0;
+  var inputs = form.elements; 
+
   for (let index = 0; index < inputs.length; index++) {
-    var input = inputs[index];
-    
-    if (input.id) {
-      if (input.value.length === 0 || !input.value) {
-        showError(input, 'This input is required.');
-        errors++;
-      } else {
-        showValid(input);
-      }
-    } 
+    const input = inputs[index];
+    if (!validateInput(input)) errors++;
   }
-  return errors >= 1 ? false : true;
+
+  return errors > 0 ? false : true;
+}
+
+function validateRequired(input) {
+  if (input.id) {
+    if (input.value.length >= 0 && input.value) {
+      showValid(input);
+      return true;
+    } 
+    showError(input, 'This input is required.');
+  }
+  return false;
 }
 
 function validateEmail(input) {
@@ -89,7 +82,7 @@ function validateEmail(input) {
 }
 
 function validatePhone(input) {
-  var phoneRegExp = /^[2-9]\d{2}-\d{3}-\d{4}$/;
+  var phoneRegExp = /^[2-9]\d{2}\d{3}\d{4}$/;
 
   if (input.id) {
     var test = phoneRegExp.test(input.value);
@@ -98,7 +91,7 @@ function validatePhone(input) {
       showValid(input);
       return true;
     } else {
-      showError(input, 'You need to enter an valid phone, ex: 800-555-5555.');
+      showError(input, 'The phone must have 10 numbers, ex: 8005555555.');
       return false;
     }
   }
@@ -117,4 +110,53 @@ function showError(input, message) {
   input.className = 'form-input invalid';
   inputError.className = 'error active';
   inputError.innerHTML = message;
+}
+
+function showModal(form) {
+  var modal = document.getElementById('submit-modal');
+  var modalContent = document.getElementById('modal-content');
+  var formString = toJSONString(form);
+
+  modalContent.innerHTML = syntaxHighlight(formString);
+  modal.style.display = "block";
+}
+
+// === Get obj from form inputs ===
+function toJSONString( form ) {
+  var obj = {};
+  var elements = form.querySelectorAll( "input, select, textarea" );
+  for( var i = 0; i < elements.length; ++i ) {
+    var element = elements[i];
+    var name = element.name;
+    var value = element.value;
+
+    if (element.type === 'checkbox') value = element.checked;
+
+    if( name ) {
+      obj[ name ] = value;
+    }
+  }
+
+  return JSON.stringify( obj, undefined, 4 );
+}
+
+// === Created by http://jsfiddle.net/KJQ9K/554/ ===
+// Add style to data
+function syntaxHighlight(json) {
+  json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      var cls = 'number';
+      if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+              cls = 'key';
+          } else {
+              cls = 'string';
+          }
+      } else if (/true|false/.test(match)) {
+          cls = 'boolean';
+      } else if (/null/.test(match)) {
+          cls = 'null';
+      }
+      return '<span class="' + cls + '">' + match + '</span>';
+  });
 }

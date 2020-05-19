@@ -21,7 +21,7 @@
           </a>
           <ul class="nav-list">
             <li class="nav-item">
-              <a class="nav-link dropdown-trigger" data-target="dropdown">Sections</a>
+              <a class="nav-link dropdown-trigger" href="#" role="button" data-target="dropdown">Sections</a>
               <div class="dropdown-content" id="dropdown">
                 <a href="?category=general">General</a>
                 <a href="?category=health">Health</a>
@@ -102,20 +102,20 @@
       <div class="container">
         <h2 class="title text-center">Contact Us</h2>
         <div class="card">
-          <form method="post" id="form-contact" onsubmit="return submitContact(this);">
+          <form method="post" id="form-contact" novalidate onsubmit="return submitContact(this);">
             
             <div class="row my-6">
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="first_name">First Name</label>
-                  <input id="input-first-name" tabindex="1" class="form-input" type="text" name="first_name">
+                  <input id="input-first-name" class="form-input" type="text" name="first_name">
                   <span class="error"></span>
                 </div>
               </div>
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="last_name">Last Name</label>
-                  <input id="input-last-name" tabindex="2" class="form-input" type="text" name="last_name">
+                  <input id="input-last-name" class="form-input" type="text" name="last_name">
                   <span class="error"></span>
                 </div>
               </div>
@@ -125,14 +125,14 @@
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="email">Email</label>
-                  <input id="input-email" tabindex="3" class="form-input" type="text" name="email">
+                  <input id="input-email" class="form-input" type="email" name="email">
                   <span class="error"></span>
                 </div>
               </div>
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="phone_number">Phone Number</label>
-                  <input id="input-phone" tabindex="4" class="form-input" type="phone" name="phone_number">
+                  <input id="input-phone" class="form-input" type="tel" name="phone_number">
                   <span class="error"></span>
                 </div>
               </div>
@@ -142,7 +142,7 @@
               <div class="col">
                 <div class="form-section">
                   <label class="form-label" for="message">Message</label>
-                  <textarea id="input-message" tabindex="5" class="form-input" type="text" name="message" rows="3"></textarea>
+                  <textarea id="input-message" class="form-input" type="text" name="message" rows="3"></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -161,7 +161,7 @@
             </div>
 
             <div class="text-center submit-button">
-              <button tabindex="8" type="submit" class="button button-primary button-long">
+              <button type="submit" class="button button-primary button-long">
                 Submit form
               </button>
             </div>
@@ -175,10 +175,12 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="modal-close">&times;</span>
-          <p><code id="modal-content"></code></p>
+          <div class="button-close modal-close">
+            <span>&times;</span>
+          </div>
+          <p>Form content:</p>
+          <pre id="modal-content"></pre>
         </div>
-      
       </div>      
     </section>
   
@@ -189,6 +191,7 @@
     <script>
       initializeDropdowns();
       getNews();
+      initializeForm();
 
     </script>
   </body>

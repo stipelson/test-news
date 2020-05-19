@@ -3,7 +3,8 @@ var closeModal = document.getElementsByClassName("modal-close")[0];
 
 // Functions
 
-var toggleDropdown = function() {
+var toggleDropdown = function(event) {
+  if (event) event.preventDefault();
   var attribute = this.getAttribute('data-target');
   document.getElementById(attribute).classList.toggle('show');
 };

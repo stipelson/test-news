@@ -148,36 +148,6 @@ p {
   border: 0;
   background: transparent; }
 
-.button-close {
-  position: relative;
-  background: #282E2E;
-  opacity: 0.8;
-  height: 16.19px;
-  width: 16.19px;
-  max-height: 16.19px;
-  max-width: 16.19px;
-  padding: 0;
-  border-radius: 50%;
-  border: none;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer; }
-
-.button-close span {
-  position: absolute;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #FFFFFF;
-  max-width: 10.6px;
-  padding-bottom: .15em;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
-
 .alert-info {
   color: #1D2121;
   background-color: #DFEFFD; }
@@ -266,6 +236,36 @@ body {
 
 .button-long {
   padding: 10.5px 40.5px; }
+
+.button-close {
+  position: relative;
+  background: #282E2E;
+  opacity: 0.8;
+  height: 16.19px;
+  width: 16.19px;
+  max-height: 16.19px;
+  max-width: 16.19px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer; }
+
+.button-close span {
+  position: absolute;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #FFFFFF;
+  max-width: 10.6px;
+  padding-bottom: .15em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
 
 .card {
   padding: 40px 0;
@@ -457,14 +457,11 @@ input:focus:invalid {
   border-radius: 2px; }
 
 .modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold; }
+  float: right; }
 
 .modal-close:hover,
 .modal-close:focus {
-  color: black;
+  color: aaa;
   text-decoration: none;
   cursor: pointer; }
 
@@ -477,6 +474,26 @@ input:focus:invalid {
 .my-6 {
   margin-top: 6px;
   margin-bottom: 6px; }
+
+pre {
+  outline: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px; }
+
+.string {
+  color: green; }
+
+.number {
+  color: darkorange; }
+
+.boolean {
+  color: blue; }
+
+.null {
+  color: magenta; }
+
+.key {
+  color: red; }
 
 body {
   background: #F2F4F8;
