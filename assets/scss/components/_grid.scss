@@ -18,18 +18,26 @@ body {
   box-sizing: border-box;
 }
 
-.col, .col-half {
+
+.col, .col-half-xs, .col-half-sm {
   box-sizing: border-box;
   position: relative;
-  width: 100%;
   min-height: 1px;
   padding-right: 37px;
   padding-left: 37px;
-  flex: 0 0 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
-.col-half {
-  flex: 0 0 50%;
-  max-width: 50%;
+@include media-min-screen($media-screen-xs) {
+  .col-half-xs {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@include media-min-screen($media-screen-sm) {
+  .col-half-sm {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }

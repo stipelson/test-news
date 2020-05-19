@@ -3,25 +3,23 @@
 .alert {
   position: relative;
   padding: 13px 18px;
-  font-size: 14px;
-  letter-spacing: -0.08px;
-  line-height: 19px;
   margin-bottom: 5px;
+
+  @include font-style($size: 14px, $weight: 400, $height: 19px, $letter: -0.08px);
 }
 
 .alert-dismissible .option-close {
   position: absolute;
+  padding: 13px 21px;
   float: right;
   top: 0;
   right: 0;
   border: 0;
-  padding: 13px 21px;
   background: transparent;
 }
 
 .button-close {
   position: relative;
-  cursor: pointer;
   background: #282E2E;
   opacity: 0.8;
   height: 16.19px;
@@ -33,16 +31,15 @@
   border: none;
   vertical-align: middle;
   text-align: center;
+  cursor: pointer;
 }
 
 .button-close span {
   position: absolute;
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
+  @include font-style($size: 18px, $weight: 400, $height: normal, $letter: normal);
+  color: $white-color;
   max-width: 10.6px;
   padding-bottom: .15em;
-  /* padding-left: .01em; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -52,8 +49,8 @@
 // === ALERT INFO === 
 
 .alert-info {
-  color: #1D2121;
-  background-color: #DFEFFD;
+  color: $black-color;
+  background-color: $info-color;
 }
 
 .alert-info.alert-dismissible {

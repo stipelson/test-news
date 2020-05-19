@@ -1,28 +1,24 @@
+// === FONTS ===
+
+@include google-font("Open+Sans", "300;400;600;700");
+
 // === BASE === 
 
 h1, h2, h3, h4, h5, p {
   font-family: $headline-font;
-  color: #1D2121;
+  color: $black-color;
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 30px;
-  letter-spacing: -0.16px;
-  line-height: 41px;
+  @include font-style($size: 30px, $weight: 400, $height: 41px, $letter: -0.16px);
 }
 
 h3 {
-  font-size: 21px;
-  letter-spacing: -0.11px;
-  line-height: 28px;
+  @include font-style($size: 21px, $weight: 600, $height: 28px, $letter: -0.11px);
 }
 
 p {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.09px;
-  line-height: 22px;
+  @include font-style($size: 16px, $weight: 400, $height: 22px, $letter: -0.09px);
 }
 
 // === MODIFICATORS ===
@@ -33,12 +29,6 @@ p {
 
 .text-center {
   text-align: center;
-}
-
-.container {
-  width: 100%;
-  max-width: 940px;
-  margin: 0 auto;
 }
 
 .title-hidden {
@@ -55,7 +45,7 @@ p {
 }
 
 .text-white {
-  color: #FFFFFF;
+  color: $white-color;
 }
 
 .text-regular {

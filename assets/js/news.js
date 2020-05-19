@@ -30,7 +30,7 @@ function drawNews(articles) {
       titleElement.innerText = article.title;
       descriptionElement.innerText = article.description;
 
-      colElement.className = 'col-half';
+      colElement.className = 'col-half-sm';
       
       linkElement.className = 'list-item';
       linkElement.href = article.url;
@@ -40,8 +40,6 @@ function drawNews(articles) {
       imgElement.className = 'list-item-image';
       imgElement.src = article.urlToImage;
       imgElement.tag = article.title;
-
-      titleElement.className = 'text-semi-bold';
 
       linkElement.appendChild(imgElement);
       linkElement.appendChild(titleElement);

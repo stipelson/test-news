@@ -17,9 +17,9 @@ News feed page made with: `HTML`, `CSS`, `SCSS` and `JS`.
 npm install
 ```
 
-- Run project:
+- Build project:
 
-  - For compile SCSS and watch changes:
+  - For compile SCSS and watch changes (`Live-reload`):
 
     ```bash
     npm run scss

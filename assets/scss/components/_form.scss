@@ -9,51 +9,48 @@
 .form-label {
   display: inline-block;
   margin-bottom: 4.5px;
-  color: #4B5353;
-  font-size: 13px;
-  letter-spacing: -0.07px;
-  line-height: 18px;
+  color: $form-label-color;
+
+  @include font-style($size: 13px, $weight: 400, $height: 18px, $letter: -0.07px);
 }
 
 .form-input {
+  display: block;
   appearance: none;
   -webkit-appearance: none;
   box-shadow: none !important;
-  display: block;
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid #D3DBE7;
+  border: 1px solid $border-color;
   border-radius: 3px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 25px;
+  
+  @include font-style($size: 16px, $weight: 400, $height: 25px, $letter: -0.09px);
+
   padding: 4px;
 }
 
 .form-checkbox-label {
-  display: block;
   position: relative;
+  display: block;
   padding-left: 35px;
   margin-bottom: 54px;
-  cursor: pointer;
   
-  color: #1D2121;
-  font-size: 16px;
-  letter-spacing: -0.09px;
-  line-height: 24px;
-
+  color: $black-color;
+  @include font-style($size: 16px, $weight: 400, $height: 24px, $letter: -0.09px);
+  
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
 .form-checkbox-label input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
+  cursor: pointer;
 }
 
 .form-checkmark {
@@ -62,18 +59,18 @@
   left: 0;
   height: 21px;
   width: 21px;
-  background-color: #FFFFFF;
-  border: 2px solid #BEC6C6;
+  background-color: $white-color;
+  border: 2px solid $border-color;
   border-radius: 2px;
 }
 
 .form-checkbox-label:hover input ~ .form-checkmark {
-  background-color: #F2F4F8;
+  background-color: $background-color;
 }
 
 .form-checkbox-label input:checked ~ .form-checkmark {
-  background-color: #0073E9;
-  border-color:#0073E9;
+  background-color: $primary-color;
+  border-color:$primary-color;
 }
 
 .form-checkmark:after {
@@ -91,7 +88,7 @@
   top: 3.5px;
   width: 4px;
   height: 8px;
-  border: solid #FFFFFF;
+  border: solid $white-color;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -110,13 +107,11 @@ input:focus:invalid {
 }
 
 .error {
-  width  : 100%;
+  box-sizing: border-box;
+  width: 100%;
   padding: 0;
-
   font-size: 80%;
   color: #900;
-
-  box-sizing: border-box;
 }
 
 .error.active {

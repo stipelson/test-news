@@ -2,8 +2,8 @@
 <html lang="en-us">
 <head>
   <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>TEST NEWS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
@@ -34,7 +34,7 @@
               <a class="nav-link" href="">Editorial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Contact us</a>
+              <a class="nav-link" href="#contact">Contact us</a>
             </li>
           </ul>
           <a class="nav-avatar" href="./index.html">
@@ -46,7 +46,7 @@
       </nav>
     </header>
 
-    <div class="container mt-91 mb-81">
+    <div class="container main-container">
       <div class="alert alert-info alert-dismissible" id="first-alert">
         <strong class="text-regular">
           Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
@@ -74,8 +74,8 @@
 
     </div>
     
-    <section id="banner" class="mb-66">
-      <div class="banner" >
+    <section id="banner">
+      <div class="banner">
         <img 
           class="banner-background" 
           src="./assets/images/parallax-2x.jpg" 
@@ -83,7 +83,7 @@
         >
         <div class="container banner-body">
           <div class="row">
-            <div class="col-half">
+            <div class="col-half-xs">
               <h2 class="text-white banner-title">Subscribe to our newsletter.</h2>
               <p class="text-white">
                 Subscribe to our newsletter to receive weekly digests of the best and most ground-breaking news. 
@@ -98,21 +98,21 @@
       </div>
     </section>
 
-    <section id="contact" class="mb-106">
+    <section id="contact">
       <div class="container">
         <h2 class="title text-center">Contact Us</h2>
         <div class="card">
           <form method="post" id="form-contact" onsubmit="return submitContact(this);">
             
             <div class="row my-6">
-              <div class="col-half">
+              <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="first_name">First Name</label>
                   <input id="input-first-name" tabindex="1" class="form-input" type="text" name="first_name">
                   <span class="error"></span>
                 </div>
               </div>
-              <div class="col-half">
+              <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="last_name">Last Name</label>
                   <input id="input-last-name" tabindex="2" class="form-input" type="text" name="last_name">
@@ -121,15 +121,15 @@
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-half">
+            <div class="row my-6">
+              <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="email">Email</label>
                   <input id="input-email" tabindex="3" class="form-input" type="text" name="email">
                   <span class="error"></span>
                 </div>
               </div>
-              <div class="col-half">
+              <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="phone_number">Phone Number</label>
                   <input id="input-phone" tabindex="4" class="form-input" type="phone" name="phone_number">
@@ -138,7 +138,7 @@
               </div>
             </div>
             
-            <div class="row">
+            <div class="row my-6">
               <div class="col">
                 <div class="form-section">
                   <label class="form-label" for="message">Message</label>
@@ -160,7 +160,7 @@
               </div>
             </div>
 
-            <div class="text-center mb-4">
+            <div class="text-center submit-button">
               <button tabindex="8" type="submit" class="button button-primary button-long">
                 Submit form
               </button>

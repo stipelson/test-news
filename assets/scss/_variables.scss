@@ -1,6 +1,21 @@
 // === COLORS ===
-$white: #FFFFFF;
-$black: #1D2121;
+$background-color: #F2F4F8;
+$white-color: #FFFFFF;
+$black-color: #1D2121;
+$primary-color: #0073E9;
+$secondary-color: #9100AD;
+$info-color: #DFEFFD;
+$border-color: #D3DBE7;
+$form-label-color: #4B5353;
+
+// === SIZES ===
+$content-width: 940px;
+$post-image-height: 154px;
+$brand-logo-height: 43px;
+$avatar-width: 25px;
+$avatar-height: $avatar-width; 
+$media-screen-sm: 720px;
+$media-screen-xs: 480px;
   
 // === FONTS ===
 $text-font: 'Open Sans', 'sans-serif';
