@@ -371,9 +371,9 @@ body {
   border: 1px solid #900;
   background-color: #FDD; }
 
-input:focus:invalid {
-  outline: none; }
-
+/* input:focus:invalid {
+  outline: none;
+} */
 .error {
   box-sizing: border-box;
   width: 100%;
