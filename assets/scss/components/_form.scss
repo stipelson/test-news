@@ -3,31 +3,32 @@
 .form-section {
   box-sizing: border-box;
   margin-bottom: 40px;
-}
-
-
-.form-label {
-  display: inline-block;
-  margin-bottom: 4.5px;
-  color: $form-label-color;
-
-  @include font-style($size: 13px, $weight: 400, $height: 18px, $letter: -0.07px);
-}
-
-.form-input {
-  display: block;
-  appearance: none;
-  -webkit-appearance: none;
-  box-shadow: none !important;
-  box-sizing: border-box;
-  width: 100%;
-  border: 1px solid $border-color;
-  border-radius: 3px;
   
-  @include font-style($size: 16px, $weight: 400, $height: 25px, $letter: -0.09px);
-
-  padding: 4px;
+  .form-label {
+    display: inline-block;
+    margin-bottom: 4.5px;
+    color: $form-label-color;
+  
+    @include font-style($size: 13px, $weight: 400, $height: 18px, $letter: -0.07px);
+  }
+  
+  .form-input {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    
+    @include font-style($size: 16px, $weight: 400, $height: 25px, $letter: -0.09px);
+  
+    padding: 4px;
+  }
 }
+
+
 
 .form-checkbox-label {
   position: relative;
@@ -43,57 +44,59 @@
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+  }
+
+  .form-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 21px;
+    width: 21px;
+    background-color: $white-color;
+    border: 2px solid $border-color;
+    border-radius: 2px;
+  }
+
+  &:hover input ~ .form-checkmark {
+    background-color: $background-color;
+  }
+
+  input:checked ~ .form-checkmark {
+    background-color: $primary-color;
+    border-color:$primary-color;
+  }
+
+  .form-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .form-checkmark:after {
+    display: block;
+  }
+
+  .form-checkmark:after {
+    left: 6.5px;
+    top: 3.5px;
+    width: 4px;
+    height: 8px;
+    border: solid $white-color;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
 }
 
-.form-checkbox-label input {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-  cursor: pointer;
-}
-
-.form-checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 21px;
-  width: 21px;
-  background-color: $white-color;
-  border: 2px solid $border-color;
-  border-radius: 2px;
-}
-
-.form-checkbox-label:hover input ~ .form-checkmark {
-  background-color: $background-color;
-}
-
-.form-checkbox-label input:checked ~ .form-checkmark {
-  background-color: $primary-color;
-  border-color:$primary-color;
-}
-
-.form-checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.form-checkbox-label input:checked ~ .form-checkmark:after {
-  display: block;
-}
-
-.form-checkbox-label .form-checkmark:after {
-  left: 6.5px;
-  top: 3.5px;
-  width: 4px;
-  height: 8px;
-  border: solid $white-color;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 
 // === FORM VALIDATION ===
 
@@ -102,9 +105,9 @@
   background-color: #FDD;
 }
 
-/* input:focus:invalid {
+input:focus:invalid {
   outline: none;
-} */
+}
 
 .error {
   box-sizing: border-box;
@@ -112,8 +115,8 @@
   padding: 0;
   font-size: 80%;
   color: #900;
-}
 
-.error.active {
-  padding: 0.3em;
+  &.active {
+    padding: 0.3em;
+  }
 }

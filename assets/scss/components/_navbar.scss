@@ -5,80 +5,87 @@
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18);
   margin-bottom: 10px;
   width: 100%;
-} 
 
-.nav-fixed {
-  position: fixed;
-  z-index: 99;
+  &.nav-fixed {
+    position: fixed;
+    z-index: 99;
+  }
+
+  &.nav-white {
+    background-color: $white-color;
+
+    .nav-list .nav-item .nav-link {
+      color: $black-color;
+      text-align: center;
+      @include font-style($size: 16px, $weight: 400, $height: 22px, $letter: -0.09px);
+    }
+  }
+
+  .container {
+    @extend %display-flex-center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-list {
+    @extend %display-flex-row;
+    padding: 0 0 0 39.5px;
+    flex: auto;
+    margin: 0;
+    list-style: none; 
+
+    .nav-item {
+      position: relative;
+      display: inline-block;
+      padding: 0 10.5px;
+    } 
+  }
+
+  .nav-list .nav-item .nav-link,
+  .nav-brand,
+  .nav-avatar {
+    @extend %text-decoration-none;
+  } 
+  
+  .nav-brand {
+    max-height: $brand-logo-height;
+    padding: 0;
+    border: none;
+    
+    .brand-logo {
+      max-height: $brand-logo-height;
+      border: none;
+    }
+  }
+
+
+  .nav-avatar {
+    position: relative;
+    height: $avatar-height;
+    width: $avatar-width;
+    background-color: $secondary-color;
+    border-radius: 50%;
+    text-align: center;
+    
+    .avatar-text-content {
+      position: absolute;
+      padding-bottom: 0.3em;
+      padding-left: 0.1em;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      
+      &.avatar-text {
+        color: $white-color;
+        @include font-style($size: 11px, $weight: bold, $height: $avatar-height, $letter: -0.06px);
+      }
+    }
+  }
 }
 
-.nav-white {
-  background-color: $white-color;
-}
-
-.nav .container {
-  @extend %display-flex-center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
 
-.nav-list {
-  @extend %display-flex-row;
-  padding: 0 0 0 39.5px;
-  flex: auto;
-  margin: 0;
-  list-style: none; 
-}
 
-.nav-list .nav-item {
-  position: relative;
-  display: inline-block;
-  padding: 0 10.5px;
-} 
 
-.nav-white .nav-list .nav-item .nav-link {
-  color: $black-color;
-  text-align: center;
-  @include font-style($size: 16px, $weight: 400, $height: 22px, $letter: -0.09px);
-}
 
-.nav .nav-list .nav-item .nav-link,
-.nav .nav-brand,
-.nav .nav-avatar {
-  @extend %text-decoration-none;
-}
 
-.nav-brand {
-  max-height: $brand-logo-height;
-  padding: 0;
-  border: none;
-}
-
-.brand-logo {
-  max-height: $brand-logo-height;
-  border: none;
-}
-
-.nav-avatar {
-  position: relative;
-  height: $avatar-height;
-  width: $avatar-width;
-  background-color: $secondary-color;
-  border-radius: 50%;
-  text-align: center;
-}
-
-.avatar-text-content {
-  position: absolute;
-  padding-bottom: 0.3em;
-  padding-left: 0.1em;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.avatar-text {
-  color: $white-color;
-  @include font-style($size: 11px, $weight: bold, $height: $avatar-height, $letter: -0.06px);
-}

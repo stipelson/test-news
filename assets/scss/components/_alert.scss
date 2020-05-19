@@ -6,25 +6,28 @@
   margin-bottom: 5px;
 
   @include font-style($size: 14px, $weight: 400, $height: 19px, $letter: -0.08px);
+
+  &.alert-dismissible .option-close {
+    position: absolute;
+    padding: 13px 21px;
+    float: right;
+    top: 0;
+    right: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  // === ALERT INFO === 
+  
+  &.alert-info {
+    color: $black-color;
+    background-color: $info-color;
+    
+    &.alert-dismissible {
+      padding-right: 4rem;
+    }
+  }
+  
 }
 
-.alert-dismissible .option-close {
-  position: absolute;
-  padding: 13px 21px;
-  float: right;
-  top: 0;
-  right: 0;
-  border: 0;
-  background: transparent;
-}
 
-// === ALERT INFO === 
-
-.alert-info {
-  color: $black-color;
-  background-color: $info-color;
-}
-
-.alert-info.alert-dismissible {
-  padding-right: 4rem;
-}

@@ -5,24 +5,24 @@
   @extend %display-flex-center;
   width: 100vw;
   justify-content: center;
-}
 
-.banner-title {
-  margin: 20px 0;
-}
+  .banner-body {
+    position: absolute;
+    z-index: 2;
 
-.banner-body {
-  position: absolute;
-  z-index: 2;
-}
+    .banner-title {
+      margin: 20px 0;
+    }
 
-.banner-body p {
-  margin-bottom: 41.5px;
-}
-
-.banner-background {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
+    & p {
+      margin-bottom: 41.5px;
+    }
+  }
+  
+  .banner-background {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+  }
 }
