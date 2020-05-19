@@ -46,9 +46,9 @@
 .dropdown-content a {
   display: block;
   padding: 12px 16px;
-  text-decoration: none;
   color: $black-color;
-
+  
+  @extend %text-decoration-none;
   @include font-style($size: 16px, $weight: 400, $height: 22px, $letter: -0.09px);
 }
 

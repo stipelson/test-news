@@ -16,3 +16,20 @@
     @content;
   }
 }
+
+// === Inheritance ===
+
+%display-flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%display-flex-row {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+%text-decoration-none {
+  text-decoration: none;
+}

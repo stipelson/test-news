@@ -26,7 +26,7 @@
 
 .modal-close:hover,
 .modal-close:focus {
+  @extend %text-decoration-none;
   color: aaa;
-  text-decoration: none;
   cursor: pointer;
 }

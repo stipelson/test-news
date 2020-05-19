@@ -84,7 +84,6 @@ function validatePhone(input) {
 
   if (input.id) {
     var test = phoneRegExp.test(input.value);
-    console.log('validate phone', input.value, test)
     if (test) {
       showValid(input);
       return true;

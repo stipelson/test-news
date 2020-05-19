@@ -33,7 +33,7 @@ body {
 // === NEWS FEED ===
 
 .list-item {
-  text-decoration: none;
+  @extend %text-decoration-none;
   display: block;
 }
 

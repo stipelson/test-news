@@ -17,19 +17,16 @@
 }
 
 .nav .container {
-  display: flex;
+  @extend %display-flex-center;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
 }
 
 
 .nav-list {
+  @extend %display-flex-row;
   padding: 0 0 0 39.5px;
-  display: flex;
   flex: auto;
-  -ms-flex-direction: row;
-  flex-direction: row;
   margin: 0;
   list-style: none; 
 }
@@ -49,7 +46,7 @@
 .nav .nav-list .nav-item .nav-link,
 .nav .nav-brand,
 .nav .nav-avatar {
-  text-decoration: none;
+  @extend %text-decoration-none;
 }
 
 .nav-brand {
