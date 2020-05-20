@@ -30,6 +30,21 @@ npm install
     ```bash
     npm run build-scss
     ```
+  
+  - Run Prettier:
+
+    ```bash
+    # Check files
+    npm run prettier-check #Return list of files with errors
+    # Fix errors
+    npm run prettier-fix #Return list of fixed files
+    ```
+
+  - Watch changes and run prettier (`Solve errors`):
+
+    ```bash
+    npm run prettier-watch
+    ```
 
 #### Run
 
