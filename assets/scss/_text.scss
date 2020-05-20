@@ -1,24 +1,44 @@
 // === FONTS ===
 
-@include google-font("Open+Sans", "300;400;600;700");
+@include google-font('Open+Sans', '300;400;600;700');
 
-// === BASE === 
+// === BASE ===
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   font-family: $headline-font;
   color: $black-color;
 }
 
 h2 {
-  @include font-style($size: 30px, $weight: 400, $height: 41px, $letter: -0.16px);
+  @include font-style(
+    $size: 30px,
+    $weight: 400,
+    $height: 41px,
+    $letter: -0.16px
+  );
 }
 
 h3 {
-  @include font-style($size: 21px, $weight: 600, $height: 28px, $letter: -0.11px);
+  @include font-style(
+    $size: 21px,
+    $weight: 600,
+    $height: 28px,
+    $letter: -0.11px
+  );
 }
 
 p {
-  @include font-style($size: 16px, $weight: 400, $height: 22px, $letter: -0.09px);
+  @include font-style(
+    $size: 16px,
+    $weight: 400,
+    $height: 22px,
+    $letter: -0.09px
+  );
 }
 
 // === MODIFICATORS ===
@@ -41,7 +61,7 @@ p {
   border: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
-  clip: rect(1px,1px,1px,1px);
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .text-white {

@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>TEST NEWS</title>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>TEST NEWS</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
   <body>
     <h1 class="title-hidden">News</h1>
     <header>
       <nav class="nav nav-white nav-fixed">
         <div class="container">
           <a class="nav-brand" href="./index.html">
-            <img 
-              src="./assets/images/logo.svg" 
+            <img
+              src="./assets/images/logo.svg"
               alt="News brand logo"
               class="brand-logo"
-            >
+            />
           </a>
           <ul class="nav-list">
             <li class="nav-item">
-              <a class="nav-link dropdown-trigger" href="#" role="button" data-target="dropdown">Sections</a>
+              <a
+                class="nav-link dropdown-trigger"
+                href="#"
+                role="button"
+                data-target="dropdown"
+                >Sections</a
+              >
               <div class="dropdown-content" id="dropdown">
                 <a href="?category=general">General</a>
                 <a href="?category=health">Health</a>
@@ -49,10 +55,16 @@
     <div class="container main-container">
       <div class="alert alert-info alert-dismissible" id="first-alert">
         <strong class="text-regular">
-          Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
+          Welcome to the new look of News.com. Keep scrolling to discover
+          interesting new features and news.
         </strong>
         <div class="option-close">
-          <button onclick="closeAlert(this)" class="button-close" data-target="first-alert">
+          <button
+            class="button-close"
+            data-target="first-alert"
+            id="close-alert"
+          >
+            <!-- onclick="closeAlert(this)" -->
             <span>&times;</span>
           </button>
         </div>
@@ -61,9 +73,7 @@
       <main class="mb-34">
         <h2 class="title">Top news</h2>
         <div class="card mb-34">
-          <div class="row" id="list-news">
-            
-          </div>
+          <div class="row" id="list-news"></div>
         </div>
         <div class="text-center">
           <button onclick="getNews()" class="button button-primary">
@@ -71,23 +81,25 @@
           </button>
         </div>
       </main>
-
     </div>
-    
+
     <section id="banner">
       <div class="banner">
-        <img 
-          class="banner-background" 
-          src="./assets/images/parallax-2x.jpg" 
+        <img
+          class="banner-background"
+          src="./assets/images/parallax-2x.jpg"
           alt="Modern design of banner background"
-        >
+        />
         <div class="container banner-body">
           <div class="row">
             <div class="col-half-xs">
-              <h2 class="text-white banner-title">Subscribe to our newsletter.</h2>
+              <h2 class="text-white banner-title">
+                Subscribe to our newsletter.
+              </h2>
               <p class="text-white">
-                Subscribe to our newsletter to receive weekly digests of the best and most ground-breaking news. 
-                Also receive a discount on your monthly subscription.
+                Subscribe to our newsletter to receive weekly digests of the
+                best and most ground-breaking news. Also receive a discount on
+                your monthly subscription.
               </p>
               <button class="button button-rounded button-white button-long">
                 Subscribe
@@ -102,20 +114,34 @@
       <div class="container">
         <h2 class="title text-center">Contact Us</h2>
         <div class="card">
-          <form method="post" id="form-contact" novalidate onsubmit="return submitContact(this);">
-            
+          <form
+            method="post"
+            id="form-contact"
+            novalidate
+          >
+            <!-- onsubmit="return submitContact(this);" -->
             <div class="row my-6">
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="first_name">First Name</label>
-                  <input id="input-first-name" class="form-input" type="text" name="first_name">
+                  <input
+                    id="input-first-name"
+                    class="form-input"
+                    type="text"
+                    name="first_name"
+                  />
                   <span class="error"></span>
                 </div>
               </div>
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="last_name">Last Name</label>
-                  <input id="input-last-name" class="form-input" type="text" name="last_name">
+                  <input
+                    id="input-last-name"
+                    class="form-input"
+                    type="text"
+                    name="last_name"
+                  />
                   <span class="error"></span>
                 </div>
               </div>
@@ -125,24 +151,42 @@
               <div class="col-half-xs">
                 <div class="form-section">
                   <label class="form-label" for="email">Email</label>
-                  <input id="input-email" class="form-input" type="email" name="email">
+                  <input
+                    id="input-email"
+                    class="form-input"
+                    type="email"
+                    name="email"
+                  />
                   <span class="error"></span>
                 </div>
               </div>
               <div class="col-half-xs">
                 <div class="form-section">
-                  <label class="form-label" for="phone_number">Phone Number</label>
-                  <input id="input-phone" class="form-input" type="tel" name="phone_number">
+                  <label class="form-label" for="phone_number"
+                    >Phone Number</label
+                  >
+                  <input
+                    id="input-phone"
+                    class="form-input"
+                    type="tel"
+                    name="phone_number"
+                  />
                   <span class="error"></span>
                 </div>
               </div>
             </div>
-            
+
             <div class="row my-6">
               <div class="col">
                 <div class="form-section">
                   <label class="form-label" for="message">Message</label>
-                  <textarea id="input-message" class="form-input" type="text" name="message" rows="3"></textarea>
+                  <textarea
+                    id="input-message"
+                    class="form-input"
+                    type="text"
+                    name="message"
+                    rows="3"
+                  ></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -153,7 +197,11 @@
                 <div class="form-section">
                   <label class="form-checkbox-label">
                     Send me emails about breaking news and promotions.
-                    <input name="email_subscription" type="checkbox" value="true">
+                    <input
+                      name="email_subscription"
+                      type="checkbox"
+                      value="true"
+                    />
                     <span class="form-checkmark"></span>
                   </label>
                 </div>
@@ -165,14 +213,12 @@
                 Submit form
               </button>
             </div>
-
           </form>
         </div>
       </div>
 
       <!-- Modal -->
       <div id="submit-modal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
           <div class="button-close modal-close">
@@ -181,18 +227,11 @@
           <p>Form content:</p>
           <pre id="modal-content"></pre>
         </div>
-      </div>      
+      </div>
     </section>
-  
+
     <script src="./assets/js/site.js"></script>
-    <script src="./assets/js/requests.js"></script>
     <script src="./assets/js/news.js"></script>
     <script src="./assets/js/contact.js"></script>
-    <script>
-      initializeDropdowns();
-      getNews();
-      initializeForm();
-
-    </script>
   </body>
 </html>

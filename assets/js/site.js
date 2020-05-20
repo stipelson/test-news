@@ -1,9 +1,10 @@
-var modal = document.getElementById("submit-modal");
-var closeModal = document.getElementsByClassName("modal-close")[0];
+const modal = document.getElementById('submit-modal');
+const closeModal = document.getElementsByClassName('modal-close')[0];
+var closeAlertButton = document.getElementById('close-alert');
 
 // Functions
 
-var toggleDropdown = function(event) {
+var toggleDropdown = function (event) {
   if (event) event.preventDefault();
   var attribute = this.getAttribute('data-target');
   document.getElementById(attribute).classList.toggle('show');
@@ -12,37 +13,23 @@ var toggleDropdown = function(event) {
 function initializeDropdowns() {
   var dropdowns = document.getElementsByClassName('dropdown-trigger');
   for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].addEventListener('click', toggleDropdown, false);
+    dropdowns[i].addEventListener('click', toggleDropdown, false);
   }
 }
 
-function closeAlert(node) {
-  var target = node.getAttribute('data-target');
+function closeAlert() {
+  var target = this.getAttribute('data-target');
   var nodeTarget = document.getElementById(target);
   if (nodeTarget) nodeTarget.style.display = 'none';
 }
 
-function getParams(url) {
-	var params = {};
-	var parser = document.createElement('a');
-	parser.href = url;
-	var query = parser.search.substring(1);
-	var vars = query.split('&');
-	for (var i = 0; i < vars.length; i++) {
-		var pair = vars[i].split('=');
-		params[pair[0]] = decodeURIComponent(pair[1]);
-	}
-	return params;
+// Events
+closeModal.onclick = function () {
+  modal.style.display = 'none';
 };
 
-// Events
-
-closeModal.onclick = function() {
-  modal.style.display = "none";
-}
-
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropdown-trigger')) {
     var dropdowns = document.getElementsByClassName('dropdown-content');
     var i;
@@ -56,6 +43,9 @@ window.onclick = function(event) {
 
   // Close the modal
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = 'none';
   }
-}
+};
+
+initializeDropdowns();
+closeAlertButton.onclick = closeAlert;

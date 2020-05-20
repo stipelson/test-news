@@ -4,10 +4,11 @@
   "description": "News feed page made with: `HTML`, `CSS` and `JS`.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "eslint assets/js",
     "scss": "node-sass assets/scss -o assets/css && node-sass --watch --recursive assets/scss -o assets/css",
     "build-scss": "node-sass assets/scss -o assets/css --output-style compressed"
   },
+  "pre-commit": ["test"],
   "repository": {
     "type": "git",
     "url": "git@github.com-styvenflorez:styvenflorez/test-news.git"
@@ -16,6 +17,8 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "eslint": "^7.0.0",
+    "node-sass": "^4.14.1",
+    "pre-commit": "^1.2.2"
   }
 }

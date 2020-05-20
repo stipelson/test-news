@@ -8,7 +8,12 @@
   background: transparent;
   cursor: pointer;
 
-  @include font-style($size: 14px, $weight: 600, $height: 19px, $letter: -0.08px);
+  @include font-style(
+    $size: 14px,
+    $weight: 600,
+    $height: 19px,
+    $letter: -0.08px
+  );
 
   // === COLOR BUTTONS ===
   &.button-primary {
@@ -29,11 +34,10 @@
   }
 }
 
-
 // === SMALL BUTTONS ===
 .button-close {
   position: relative;
-  background: #282E2E;
+  background: #282e2e;
   opacity: 0.8;
   height: 16.19px;
   width: 16.19px;
@@ -48,10 +52,15 @@
 
   span {
     position: absolute;
-    @include font-style($size: 18px, $weight: 400, $height: normal, $letter: normal);
+    @include font-style(
+      $size: 18px,
+      $weight: 400,
+      $height: normal,
+      $letter: normal
+    );
     color: $white-color;
     max-width: 10.6px;
-    padding-bottom: .15em;
+    padding-bottom: 0.15em;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

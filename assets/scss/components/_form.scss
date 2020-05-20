@@ -3,15 +3,20 @@
 .form-section {
   box-sizing: border-box;
   margin-bottom: 40px;
-  
+
   .form-label {
     display: inline-block;
     margin-bottom: 4.5px;
     color: $form-label-color;
-  
-    @include font-style($size: 13px, $weight: 400, $height: 18px, $letter: -0.07px);
+
+    @include font-style(
+      $size: 13px,
+      $weight: 400,
+      $height: 18px,
+      $letter: -0.07px
+    );
   }
-  
+
   .form-input {
     display: block;
     appearance: none;
@@ -21,24 +26,32 @@
     width: 100%;
     border: 1px solid $border-color;
     border-radius: 3px;
-    
-    @include font-style($size: 16px, $weight: 400, $height: 25px, $letter: -0.09px);
-  
+
+    @include font-style(
+      $size: 16px,
+      $weight: 400,
+      $height: 25px,
+      $letter: -0.09px
+    );
+
     padding: 4px;
   }
 }
-
-
 
 .form-checkbox-label {
   position: relative;
   display: block;
   padding-left: 35px;
   margin-bottom: 54px;
-  
+
   color: $black-color;
-  @include font-style($size: 16px, $weight: 400, $height: 24px, $letter: -0.09px);
-  
+  @include font-style(
+    $size: 16px,
+    $weight: 400,
+    $height: 24px,
+    $letter: -0.09px
+  );
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -70,11 +83,11 @@
 
   input:checked ~ .form-checkmark {
     background-color: $primary-color;
-    border-color:$primary-color;
+    border-color: $primary-color;
   }
 
   .form-checkmark:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
@@ -94,15 +107,14 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
 }
-
 
 // === FORM VALIDATION ===
 
-.form-input.invalid, input:invalid{
+.form-input.invalid,
+input:invalid {
   border: 1px solid #900;
-  background-color: #FDD;
+  background-color: #fdd;
 }
 
 input:focus:invalid {
