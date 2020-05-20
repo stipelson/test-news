@@ -1,0 +1,53 @@
+// === MAIN CONTENT ===
+
+body {
+  background: $background-color;
+  font-family: $text-font;
+}
+
+// === CONTAINERS ===
+
+.display-flex {
+  display: flex;
+}
+
+.main-container {
+  margin-bottom: 81px;
+  margin-top: 91px;
+}
+
+.submit-button {
+  margin-bottom: 4px;
+}
+
+#banner {
+  margin-bottom: 66px;
+}
+
+#contact {
+  margin-bottom: 106px;
+}
+
+// === NEWS FEED ===
+
+.list-item {
+  @extend %text-decoration-none;
+  display: block;
+}
+
+#list-news {
+  padding-top: 1px;
+  padding-bottom: 5px;
+
+  & > :nth-last-child(n+3) {
+    margin-bottom: 55px;
+  }
+}
+
+.list-item-image {
+  width: 100%;
+  height: $post-image-height;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: 50% 50%;
+}

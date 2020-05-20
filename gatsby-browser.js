@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+
+import 'emerald-ui/lib/styles.css'
+import './src/assets/scss/styles.scss'

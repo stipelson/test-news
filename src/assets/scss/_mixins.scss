@@ -1,0 +1,35 @@
+@mixin google-font($font, $sisez, $display: swap) {
+  $font: unquote($font);
+  @import url(https://fonts.googleapis.com/css2?family=#{$font}:wght@#{$sisez}&display=#{$display});
+}
+
+@mixin font-style($size, $weight, $letter, $height) {
+  font-family: "Open Sans";
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letter;
+}
+
+@mixin media-min-screen($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+// === Inheritance ===
+
+%display-flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%display-flex-row {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+%text-decoration-none {
+  text-decoration: none;
+}
