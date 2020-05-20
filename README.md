@@ -19,16 +19,30 @@ npm install
 
 - Build project:
 
-  - For compile SCSS and watch changes (`Live-reload`):
+  - For compile SCSS and watch changes (`Write css`):
 
     ```bash
-    npm run scss
+    npm run watch-scss
+    ```
+
+  - Build SCSS for development:
+
+    ```bash
+    npm run build-scss-dev
     ```
 
   - Build SCSS for production (`Minify`):
 
     ```bash
-    npm run build-scss
+    npm run build-scss-prod
+    ```
+
+- Prettier (`Code beautifier`):
+  
+  - Watch changes and run prettier (`Solve errors`):
+
+    ```bash
+    npm run watch-prettier
     ```
   
   - Run Prettier:
@@ -38,12 +52,6 @@ npm install
     npm run prettier-check #Return list of files with errors
     # Fix errors
     npm run prettier-fix #Return list of fixed files
-    ```
-
-  - Watch changes and run prettier (`Solve errors`):
-
-    ```bash
-    npm run prettier-watch
     ```
 
 #### Run
