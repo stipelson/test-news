@@ -1,0 +1,12 @@
+.eui-btn.eui-btn-outline.eui-btn-inverted {
+  &.eui-btn-outline {
+    &.eui-btn-inverted {
+      color: $white-color;
+      border-color: $white-color;
+    }
+    &.btn-padding-lg {
+      padding-left: 40.5px;
+      padding-right: 40.5px;
+    }
+  }
+}

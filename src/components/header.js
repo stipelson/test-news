@@ -15,12 +15,12 @@ const Header = ({ siteTitle, brandLogo }) => (
       marginBottom: '1.45rem',
     }}
   >
-    <Navbar breakAt="sm">
+    <Navbar fixedAtTop breakAt="sm">
       <div className="container display-flex">
         <Navbar.Brand>
           <Link to="/">
             {/* <Img fluid={''} alt={siteTitle}/> */}
-            <img src={brandLogo} alt={siteTitle}/>
+            <img src={brandLogo} alt={`Logo ${siteTitle}`}/>
           </Link>
         </Navbar.Brand>
         <Nav grow collapsible>

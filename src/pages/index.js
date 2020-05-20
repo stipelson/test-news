@@ -1,13 +1,49 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-  </Layout>
-)
+import Card from 'emerald-ui/lib/Card';
+import Button from 'emerald-ui/lib/Button';
 
-export default IndexPage
+import Banner from '../components/banner';
+import Contact from '../components/contact';
+
+const IndexPage = () => {
+  const bannerContent =
+    'Subscribe to our newsletter to receive weekly digests of the ' +
+    'best and most ground-breaking news. Also receive a discount on ' +
+    'your monthly subscription.';
+
+  return (
+    <Layout hiddenTitle>
+      <SEO title="Home" />
+
+      <div className="container main-container">
+        <h2 className="mt-0">Top news</h2>
+
+        <Card className="card-container"></Card>
+
+        <div className="text-center">
+          <Button color="primary" size="sm">
+            View more stories
+          </Button>
+        </div>
+      </div>
+
+      <Banner
+        title="Subscribe to our newsletter."
+        content={bannerContent}
+        buttonLabel="Subscribe"
+        buttonAriaLabel="Button for subscribe"
+        buttonAction={() => {
+          return false;
+        }}
+      />
+
+      <Contact title="Contact Us" />
+    </Layout>
+  );
+};
+
+export default IndexPage;
