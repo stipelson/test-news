@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -8,12 +8,21 @@ import Button from 'emerald-ui/lib/Button';
 
 import Banner from '../components/banner';
 import Contact from '../components/contact';
+import Modal from 'emerald-ui/lib/Modal';
 
 const IndexPage = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+
   const bannerContent =
     'Subscribe to our newsletter to receive weekly digests of the ' +
     'best and most ground-breaking news. Also receive a discount on ' +
     'your monthly subscription.';
+
+  const handleValidForm = (content) => {
+    setModalContent(content);
+    setShowModal(true);
+  };
 
   return (
     <Layout hiddenTitle>
@@ -41,7 +50,32 @@ const IndexPage = () => {
         }}
       />
 
-      <Contact title="Contact Us" />
+      <Contact title="Contact Us" onValidForm={handleValidForm} />
+
+      <Modal
+        onHide={() => {
+          setShowModal(false);
+        }}
+        show={showModal}
+      >
+        <Modal.Header closeButton={true}>
+          <Modal.Title>Form content</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <pre>{modalContent}</pre>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            onClick={() => {
+              setShowModal(false);
+            }}
+            shape="flat"
+            color="primary"
+          >
+            Ok
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Layout>
   );
 };

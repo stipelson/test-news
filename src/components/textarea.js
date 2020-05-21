@@ -10,15 +10,25 @@ const TextArea = ({ id, label, className, errorMessage, role, ...rest }) => {
   };
 
   return (
-    <div className={['eui-text-field', className].join(' ')}>
+    <div
+      className={[
+        'eui-text-field',
+        className,
+        errorMessage ? 'error' : '',
+      ].join(' ')}
+    >
       <div className="eui-text-field-wrapper">
         <textarea {...inputElementProps} aria-label={label}></textarea>
         <div className="eui-text-field-footer">
           <span
             id={`${id}ErrorMessage`}
-            className="eui-text-field-message eui-text-field-error-message"
+            className={`eui-text-field-message eui-text-field-error-message ${
+              errorMessage ? 'has-message' : ''
+            }`}
             role="alert"
-          ></span>
+          >
+            {errorMessage}
+          </span>
           <span className="eui-text-field-message eui-text-field-help-text"></span>
         </div>
       </div>
