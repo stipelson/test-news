@@ -16,7 +16,7 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     if (isDirty) {
       setDisable(validateState());
     }
-  }, [state, isDirty]);
+  }, [state, isDirty, validateState]);
 
   // Used to disable submit button if there's an error in state
   // or the required field in state has no value.
@@ -107,7 +107,7 @@ function useForm(stateSchema, validationSchema = {}, callback) {
         callback(state);
       }
     },
-    [validationSchema, state]
+    [validationSchema, state, callback, validateState]
   );
 
   return { state, disable, handleOnChange, handleOnSubmit };
