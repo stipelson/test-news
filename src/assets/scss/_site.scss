@@ -21,8 +21,10 @@ body {
 }
 
 .card-container {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 34px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 #banner {
@@ -84,4 +86,8 @@ body {
     width: 100%;
     height: auto;
   }
+}
+
+.mb-46 {
+  margin-bottom: 46px;
 }

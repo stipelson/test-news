@@ -4,6 +4,8 @@ import Row from 'emerald-ui/lib/Row';
 import Col from 'emerald-ui/lib/Col';
 import Button from 'emerald-ui/lib/Button';
 import TextField from 'emerald-ui/lib/TextField';
+import Checkbox from 'emerald-ui/lib/Checkbox';
+import TextArea from '../components/textarea';
 
 import Card from 'emerald-ui/lib/Card';
 
@@ -15,24 +17,33 @@ const Contact = ({ title }) => {
         <Card className="card-container">
           <form>
             <Row>
-              <Col xs={6} className="sample-col">
-                <TextField label="Label" />
+              <Col xs={6} className="mb-46">
+                <TextField label="First Name" />
               </Col>
-              <Col xs={6} className="sample-col">
-                <TextField label="Label" />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} className="sample-col">
-                <TextField label="Label" />
-              </Col>
-              <Col xs={6} className="sample-col">
-                <TextField label="Label" />
+              <Col xs={6} className="mb-46">
+                <TextField label="Last Name" />
               </Col>
             </Row>
             <Row>
-              <Col xs={12} role="textbox" className="sample-col">
-                <TextField label="Label" />
+              <Col xs={6} className="mb-46">
+                <TextField label="Email" />
+              </Col>
+              <Col xs={6} className="mb-46">
+                <TextField label="Phone Number" />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} role="textbox" className="mb-46">
+                <TextArea label="Message" rows="4" />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} role="textbox">
+                <Checkbox
+                  defaultChecked
+                  label="Send me emails about breaking news and promotions."
+                  className="mt-0 mb-46"
+                />
               </Col>
             </Row>
             <div className="text-center submit-button">
