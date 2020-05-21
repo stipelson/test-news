@@ -1,0 +1,24 @@
+@mixin font-style($size, $weight, $letter, $height) {
+  font-family: 'Open Sans';
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letter;
+}
+
+// === Inheritance ===
+
+%display-flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%display-flex-row {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+%text-decoration-none {
+  text-decoration: none;
+}

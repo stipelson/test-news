@@ -1,0 +1,69 @@
+// === BASE ===
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: $headline-font;
+  color: $black-color;
+}
+
+h2 {
+  @include font-style(
+    $size: 30px,
+    $weight: 400,
+    $height: 41px,
+    $letter: -0.16px
+  );
+}
+
+h3 {
+  @include font-style(
+    $size: 21px,
+    $weight: 600,
+    $height: 28px,
+    $letter: -0.11px
+  );
+}
+
+p {
+  @include font-style(
+    $size: 16px,
+    $weight: 400,
+    $height: 22px,
+    $letter: -0.09px
+  );
+}
+
+// === MODIFICATORS ===
+
+.text-semi-bold {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title-hidden {
+  font-size: 0;
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.text-white {
+  color: $white-color;
+}
+
+.text-regular {
+  font-weight: 400;
+}
