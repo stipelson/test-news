@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -10,7 +11,11 @@ import Banner from '../components/banner';
 import ContactForm from '../components/contactForm';
 import Modal from 'emerald-ui/lib/Modal';
 
-const IndexPage = () => {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as searchActions from '../state/actions';
+
+const IndexPage = ({ loadNews }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
 
@@ -34,7 +39,7 @@ const IndexPage = () => {
         <Card className="card-container"></Card>
 
         <div className="text-center">
-          <Button color="primary" size="sm">
+          <Button color="primary" size="sm" onClick={() => loadNews({})}>
             View more stories
           </Button>
         </div>
@@ -80,4 +85,24 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+IndexPage.propTypes = {
+  isDarkMode: PropTypes.any,
+  dispatch: PropTypes.func,
+  loadNews: PropTypes.any,
+};
+
+function mapDispatchToProps(dispatch) {
+  const actions = bindActionCreators(searchActions, dispatch);
+  return {
+    dispatch,
+    ...actions,
+  };
+}
+
+// export default IndexPage;
+export default connect(
+  (state) => ({
+    isDarkMode: state.app.isDarkMode,
+  }),
+  mapDispatchToProps
+)(IndexPage);

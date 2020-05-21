@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "axios": "^0.19.2",
     "emerald-ui": "^1.4.1",
     "gatsby": "^2.21.37",
     "gatsby-image": "^2.4.4",
@@ -19,6 +20,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
