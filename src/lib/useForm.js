@@ -5,13 +5,13 @@ function useForm(stateSchema, validationSchema = {}, callback) {
   const [disable, setDisable] = useState(true);
   const [isDirty, setIsDirty] = useState(false);
 
-  // Disable button in initial render.
+  // Disable = false on initial render.
   useEffect(() => {
     setDisable(true);
   }, []);
 
   // For every changed in our state this will be fired
-  // To be able to disable the button
+  // To be able to disable
   useEffect(() => {
     if (isDirty) {
       setDisable(validateState());
@@ -28,7 +28,23 @@ function useForm(stateSchema, validationSchema = {}, callback) {
       const stateValue = state[key].value; // state value
       const stateError = state[key].error; // state error
 
-      return (isInputFieldRequired && !stateValue) || stateError;
+      if ((isInputFieldRequired && !stateValue) || stateError) {
+        return true;
+      }
+
+      if (
+        validationSchema[key].validator !== null &&
+        typeof validationSchema[key].validator === 'object'
+      ) {
+        if (
+          stateValue &&
+          !validationSchema[key].validator.regEx.test(stateValue)
+        ) {
+          return true;
+        }
+      }
+
+      return false;
     });
 
     return hasErrorInState;
@@ -71,28 +87,8 @@ function useForm(stateSchema, validationSchema = {}, callback) {
   const handleOnSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      console.log('schema', validationSchema);
 
-      const firstError = Object.keys(validationSchema).find((key) => {
-        const value = state[key].value; // state value
-
-        if (validationSchema[key].required) {
-          if (!value) {
-            return true;
-          }
-        }
-
-        if (
-          validationSchema[key].validator !== null &&
-          typeof validationSchema[key].validator === 'object'
-        ) {
-          if (value && !validationSchema[key].validator.regEx.test(value)) {
-            return true;
-          }
-        }
-
-        return false;
-      });
+      const firstError = validateState();
 
       if (firstError && firstError !== undefined) {
         let error = validationSchema[firstError].validator
@@ -105,9 +101,9 @@ function useForm(stateSchema, validationSchema = {}, callback) {
         }));
       }
 
-      // Make sure that validateState returns false
+      // Make sure that validateState returns undefined or false
       // Before calling the submit callback function
-      if (!validateState()) {
+      if (!firstError) {
         callback(state);
       }
     },

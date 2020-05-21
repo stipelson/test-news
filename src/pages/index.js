@@ -7,7 +7,7 @@ import Card from 'emerald-ui/lib/Card';
 import Button from 'emerald-ui/lib/Button';
 
 import Banner from '../components/banner';
-import Contact from '../components/contact';
+import ContactForm from '../components/contactForm';
 import Modal from 'emerald-ui/lib/Modal';
 
 const IndexPage = () => {
@@ -50,7 +50,7 @@ const IndexPage = () => {
         }}
       />
 
-      <Contact title="Contact Us" onValidForm={handleValidForm} />
+      <ContactForm title="Contact Us" onValidForm={handleValidForm} />
 
       <Modal
         onHide={() => {

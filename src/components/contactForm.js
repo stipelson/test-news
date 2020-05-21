@@ -5,13 +5,13 @@ import Col from 'emerald-ui/lib/Col';
 import Button from 'emerald-ui/lib/Button';
 import TextField from 'emerald-ui/lib/TextField';
 import Checkbox from 'emerald-ui/lib/Checkbox';
-import TextArea from '../components/textarea';
+import TextArea from './textarea';
 
 import Card from 'emerald-ui/lib/Card';
 
 import useForm from '../lib/useForm';
 
-const Contact = ({ title, onValidForm }) => {
+const ContactForm = ({ title, onValidForm }) => {
   const stateSchema = {
     fname: { value: '', error: '' },
     lname: { value: '', error: '' },
@@ -157,13 +157,13 @@ const Contact = ({ title, onValidForm }) => {
   );
 };
 
-Contact.propTypes = {
+ContactForm.propTypes = {
   title: PropTypes.string,
   onValidForm: PropTypes.func,
 };
 
-Contact.defaultProps = {
+ContactForm.defaultProps = {
   title: '',
 };
 
-export default Contact;
+export default ContactForm;
