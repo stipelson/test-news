@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "node": true
-  }, 
+  },
   "settings": {
     "react": {
       "version": "detect"
@@ -13,8 +13,10 @@
     "strict": 0,
     "quotes": ["error", "single"]
   },
+  "plugins": ["react-hooks"],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ]
 }
