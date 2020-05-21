@@ -10,14 +10,6 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     setDisable(true);
   }, []);
 
-  // For every changed in our state this will be fired
-  // To be able to disable
-  useEffect(() => {
-    if (isDirty) {
-      setDisable(validateState());
-    }
-  }, [state, isDirty, validateState]);
-
   // Used to disable submit button if there's an error in state
   // or the required field in state has no value.
   // Wrapped in useCallback to cached the function to avoid intensive memory leaked
@@ -49,6 +41,14 @@ function useForm(stateSchema, validationSchema = {}, callback) {
 
     return hasErrorInState;
   }, [state, validationSchema]);
+
+  // For every changed in our state this will be fired
+  // To be able to disable
+  useEffect(() => {
+    if (isDirty) {
+      setDisable(validateState());
+    }
+  }, [state, isDirty, validateState]);
 
   // Used to handle every changes in every input
   const handleOnChange = useCallback(
