@@ -6,7 +6,12 @@ import Col from 'emerald-ui/lib/Col'; */
 const ArticleItem = ({ title, body, image, url }) => {
   return (
     <section>
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <a
+        className="list-item"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src={image} alt={title} className="list-item-image" />
         <h3>{title}</h3>
         <p>{body}</p>
