@@ -10,6 +10,15 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     setDisable(true);
   }, []);
 
+  const validateRegex = (value, schema) => {
+    if (schema.validator !== null && typeof schema.validator === 'object') {
+      if (value && !schema.validator.regEx.test(value)) {
+        return schema.validator.error;
+      }
+    }
+    return false;
+  };
+
   // Used to disable submit button if there's an error in state
   // or the required field in state has no value.
   // Wrapped in useCallback to cached the function to avoid intensive memory leaked
@@ -38,8 +47,39 @@ function useForm(stateSchema, validationSchema = {}, callback) {
 
       return false;
     });
-
     return hasErrorInState;
+  }, [state, validationSchema]);
+
+  // validate on submit
+  const validateStateOnSubmit = useCallback(() => {
+    let errors = 0;
+    let arraySchema = Object.keys(validationSchema);
+
+    for (let index = 0; index < arraySchema.length; index++) {
+      const key = arraySchema[index];
+      const isInputFieldRequired = validationSchema[key].required;
+      const stateValue = state[key].value; // state value
+      const stateError = state[key].error; // state error
+
+      let msgError = '';
+
+      if ((isInputFieldRequired && !stateValue) || stateError) {
+        msgError = 'This is required field.';
+      }
+
+      if (validateRegex(stateValue, validationSchema[key])) {
+        msgError = validationSchema[key].validator.error;
+      }
+      if (msgError !== '') {
+        errors++;
+        setState((prevState) => ({
+          ...prevState,
+          [key]: { value: stateValue, error: msgError },
+        }));
+      }
+    }
+
+    return errors > 0;
   }, [state, validationSchema]);
 
   // For every changed in our state this will be fired
@@ -67,13 +107,8 @@ function useForm(stateSchema, validationSchema = {}, callback) {
         }
       }
 
-      if (
-        validationSchema[name].validator !== null &&
-        typeof validationSchema[name].validator === 'object'
-      ) {
-        if (value && !validationSchema[name].validator.regEx.test(value)) {
-          error = validationSchema[name].validator.error;
-        }
+      if (validateRegex(value, validationSchema[name])) {
+        error = validationSchema[name].validator.error;
       }
 
       setState((prevState) => ({
@@ -87,27 +122,13 @@ function useForm(stateSchema, validationSchema = {}, callback) {
   const handleOnSubmit = useCallback(
     (event) => {
       event.preventDefault();
-
-      const firstError = validateState();
-
-      if (firstError && firstError !== undefined) {
-        let error = validationSchema[firstError].validator
-          ? validationSchema[firstError].validator.error
-          : 'This is required field.';
-
-        setState((prevState) => ({
-          ...prevState,
-          [firstError]: { value: state[firstError].value, error },
-        }));
-      }
-
       // Make sure that validateState returns undefined or false
       // Before calling the submit callback function
-      if (!firstError) {
+      if (!validateStateOnSubmit()) {
         callback(state);
       }
     },
-    [validationSchema, state, callback, validateState]
+    [state, callback, validateStateOnSubmit]
   );
 
   return { state, disable, handleOnChange, handleOnSubmit };
