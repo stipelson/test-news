@@ -6,60 +6,93 @@ import Nav from 'emerald-ui/lib/Nav';
 import DropdownItem from 'emerald-ui/lib/DropdownItem';
 import DropdownButton from 'emerald-ui/lib/DropdownButton';
 import Avatar from 'emerald-ui/lib/Avatar';
-// import Img from 'gatsby-image'
+// import { getParams } from '../lib/utils';
 
-const Header = ({ siteTitle, brandLogo }) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <Navbar fixedAtTop breakAt="sm">
-      <div className="container display-flex">
-        <Navbar.Brand>
-          <Link to="/">
-            {/* <Img fluid={''} alt={siteTitle}/> */}
-            <img src={brandLogo} alt={`Logo ${siteTitle}`} />
-          </Link>
-        </Navbar.Brand>
-        <Nav grow collapsible>
-          <DropdownButton title="Sections" id="dd1">
-            <DropdownItem eventKey="1" active>
-              General
-            </DropdownItem>
-            <DropdownItem eventKey="2">Health</DropdownItem>
-            <DropdownItem eventKey="3">Science</DropdownItem>
-            <DropdownItem eventKey="4">Sports</DropdownItem>
-            <DropdownItem eventKey="4">Technology</DropdownItem>
-          </DropdownButton>
-          <Link to="/">Editorial</Link>
-          <Link to="/">Contact us</Link>
-        </Nav>
-        <Nav>
-          <DropdownButton
-            noCaret
-            fromRight
-            id="dd2"
-            title={<Avatar title="JS" />}
-          >
-            <DropdownItem eventKey="1">Action</DropdownItem>
-            <DropdownItem eventKey="2">Another action</DropdownItem>
-            <DropdownItem eventKey="3" active>
-              Active Item
-            </DropdownItem>
-            <DropdownItem separator />
-            <DropdownItem eventKey="4">Separated link</DropdownItem>
-          </DropdownButton>
-        </Nav>
-      </div>
-    </Navbar>
-  </header>
-);
+const Header = ({ siteTitle, brandLogo, params, onNavigate }) => {
+  const sections = [
+    {
+      topicId: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
+      name: 'Health',
+    },
+    {
+      topicId: '240f6a12-b9d8-40a6-b1c6-a220e31d08de',
+      name: 'Renewable Energy',
+    },
+    {
+      topicId: 'b220679c-95ff-4e4e-a1fa-ad8b3905b7df',
+      name: 'Cyber Security',
+    },
+    {
+      topicId: 'c4277484-5aca-4db8-8c30-72ca9aac3ed3',
+      name: 'Technology',
+    },
+  ];
+
+  const handleOnClick = (category) => {
+    onNavigate(category);
+  };
+
+  let categoryParam = params && params.category ? params.category : '';
+
+  return (
+    <header
+      style={{
+        background: 'rebeccapurple',
+        marginBottom: '1.45rem',
+      }}
+    >
+      <Navbar fixedAtTop breakAt="sm">
+        <div className="container display-flex">
+          <Navbar.Brand>
+            <Link to="/">
+              {/* <Img fluid={''} alt={siteTitle}/> */}
+              <img src={brandLogo} alt={`Logo ${siteTitle}`} />
+            </Link>
+          </Navbar.Brand>
+          <Nav grow collapsible>
+            <DropdownButton title="Sections" id="dd1">
+              {sections.map((section, index) => (
+                <DropdownItem
+                  key={`section-dropdown-${index}`}
+                  eventKey="2"
+                  onClick={() => handleOnClick(section.topicId)}
+                  active={categoryParam === section.topicId}
+                >
+                  {section.name}
+                </DropdownItem>
+              ))}
+            </DropdownButton>
+            <Link to="/">Editorial</Link>
+            <Link to="/">Contact us</Link>
+          </Nav>
+          <Nav>
+            <DropdownButton
+              noCaret
+              fromRight
+              id="dd2"
+              title={<Avatar title="JS" />}
+            >
+              <DropdownItem eventKey="1">Action</DropdownItem>
+              <DropdownItem eventKey="2">Another action</DropdownItem>
+              <DropdownItem eventKey="3" active>
+                Active Item
+              </DropdownItem>
+              <DropdownItem separator />
+              <DropdownItem eventKey="4">Separated link</DropdownItem>
+            </DropdownButton>
+          </Nav>
+        </div>
+      </Navbar>
+    </header>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
   brandLogo: PropTypes.any,
+  location: PropTypes.any,
+  params: PropTypes.object,
+  onNavigate: PropTypes.func,
 };
 
 Header.defaultProps = {

@@ -15,11 +15,7 @@ const Banner = ({
 }) => {
   return (
     <section id="banner" className="banner">
-      <img
-        className="banner-background"
-        src={ParallaxImage}
-        alt="Modern design of banner background"
-      />
+      <img className="banner-background" src={ParallaxImage} />
       <div className="container banner-body">
         <Row>
           <Col xs={6} className="sample-col">

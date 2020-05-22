@@ -23,8 +23,15 @@ body {
 .card-container {
   margin-top: 25px;
   margin-bottom: 34px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 16px;
+  padding-bottom: 14px;
+}
+
+.extra-p-md-6 .eui-col:nth-child(even) {
+  padding-left: 44px;
+}
+.extra-p-md-6 .eui-col:nth-child(odd) {
+  padding-right: 44px;
 }
 
 #banner {

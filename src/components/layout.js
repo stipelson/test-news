@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import BrandLogo from '../assets/images/logo.svg';
-import Header from './header';
+import Header from './Header';
 import Alert from 'emerald-ui/lib/Alert';
 
-const Layout = ({ children, hiddenTitle }) => {
+const Layout = ({ children, hiddenTitle, params, onNavigate }) => {
   const [showAlert, setShowAlert] = useState(true);
 
   const { site } = useStaticQuery(
@@ -36,7 +36,12 @@ const Layout = ({ children, hiddenTitle }) => {
       {hiddenTitle && (
         <h1 className="title-hidden">{site.siteMetadata.title}</h1>
       )}
-      <Header siteTitle={site.siteMetadata.title} brandLogo={BrandLogo} />
+      <Header
+        siteTitle={site.siteMetadata.title}
+        brandLogo={BrandLogo}
+        params={params}
+        onNavigate={onNavigate}
+      />
       {showAlert && (
         <div className="container">
           <Alert dismissible onDismiss={() => setShowAlert(false)}>
@@ -52,6 +57,8 @@ const Layout = ({ children, hiddenTitle }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   hiddenTitle: PropTypes.bool,
+  params: PropTypes.object,
+  onNavigate: PropTypes.func,
 };
 
 Layout.defaultProps = {
