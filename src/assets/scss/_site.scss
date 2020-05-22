@@ -44,7 +44,8 @@ body {
 
 // === NEWS FEED ===
 
-.list-item {
+.list-item,
+.list-item:hover {
   @extend %text-decoration-none;
   display: block;
 }
