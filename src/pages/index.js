@@ -17,9 +17,8 @@ import { bindActionCreators } from 'redux';
 import * as searchActions from '../state/actions';
 import { getParams } from '../lib/utils';
 import { navigate } from '@reach/router';
-import Toast from 'emerald-ui/lib/Toast';
 
-const IndexPage = ({ loadNews, loading, articles, location, error }) => {
+const IndexPage = ({ loadNews, loading, articles, location }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const [query, setQuery] = useState({
@@ -32,8 +31,6 @@ const IndexPage = ({ loadNews, loading, articles, location, error }) => {
     'Subscribe to our newsletter to receive weekly digests of the ' +
     'best and most ground-breaking news. Also receive a discount on ' +
     'your monthly subscription.';
-
-  let errorMsg = null;
 
   const handleValidForm = (content) => {
     setModalContent(content);
@@ -58,9 +55,6 @@ const IndexPage = ({ loadNews, loading, articles, location, error }) => {
   if (query.page === 1) {
     handleLoadNews(true);
   }
-
-  if (error && typeof error === 'object') errorMsg = JSON.stringify(error);
-  else errorMsg = error;
 
   return (
     <Layout hiddenTitle params={params} onNavigate={handleNavigate}>
@@ -124,14 +118,6 @@ const IndexPage = ({ loadNews, loading, articles, location, error }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      <Toast
-        message={errorMsg || ''}
-        actionText="Undo"
-        position="right"
-        onActionClick={() => true}
-        visible={errorMsg}
-      />
     </Layout>
   );
 };
@@ -144,7 +130,6 @@ IndexPage.propTypes = {
   /* Reducers */
   articles: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.any,
 };
 
 function mapDispatchToProps(dispatch) {

@@ -7,8 +7,10 @@ import {
 
 import request from '../lib/request';
 
-const apiKey = process.env.NEWS_KEY;
-const url = process.env.NEWS_URL;
+const apiKey = '65e9cbc8-be98-4b0e-a423-005257373b5f';
+const url = `${
+  process.env.NODE_ENV === 'development' ? 'http' : 'https'
+}://eventregistry.org/api/v1/article/getArticlesForTopicPage`;
 
 export const fetchNewsSuccess = (articles) => ({
   type: FETCH_NEWS_SUCCESS,
@@ -59,6 +61,7 @@ export function loadNews({ options, reload = false }) {
         // handle error
         console.log(error);
         dispatch(fetchNewsError(error));
+        alert(error);
       });
   };
 }
