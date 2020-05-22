@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'News',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
+    description:
+      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: '@gatsbyjs',
   },
   plugins: [
@@ -32,12 +33,12 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          'Open+Sans:wght@300;400;600;700' // you can also specify font weights and styles
+          'Open+Sans:wght@300;400;600;700', // you can also specify font weights and styles
         ],
-        display: 'swap'
-      }
+        display: 'swap',
+      },
     },
-    'gatsby-plugin-sass'
+    'gatsby-plugin-sass',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

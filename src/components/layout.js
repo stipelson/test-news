@@ -5,15 +5,15 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import BrandLogo from '../assets/images/logo.svg'
-import Header from './header'
-import Alert from 'emerald-ui/lib/Alert'
+import BrandLogo from '../assets/images/logo.svg';
+import Header from './Header';
+import Alert from 'emerald-ui/lib/Alert';
 
-const Layout = ({ children, hiddenTitle }) => {
+const Layout = ({ children, hiddenTitle, params, onNavigate }) => {
   const [showAlert, setShowAlert] = useState(true);
 
   const { site } = useStaticQuery(
@@ -26,42 +26,43 @@ const Layout = ({ children, hiddenTitle }) => {
         }
       }
     `
-  )
+  );
 
-  const alertMsg = 'Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.'
+  const alertMsg =
+    'Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.';
 
   return (
     <>
-      {hiddenTitle &&
+      {hiddenTitle && (
         <h1 className="title-hidden">{site.siteMetadata.title}</h1>
-      }
-      <Header siteTitle={site.siteMetadata.title} brandLogo={BrandLogo}/>
-      {showAlert &&
+      )}
+      <Header
+        siteTitle={site.siteMetadata.title}
+        brandLogo={BrandLogo}
+        params={params}
+        onNavigate={onNavigate}
+      />
+      {showAlert && (
         <div className="container">
           <Alert dismissible onDismiss={() => setShowAlert(false)}>
-            <div>
-              {alertMsg}
-            </div>
+            <div>{alertMsg}</div>
           </Alert>
         </div>
-      }
+      )}
       <main>{children}</main>
-      <footer className="container">
-        © {new Date().getFullYear()}, Built with
-        {' '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  hiddenTitle: PropTypes.bool
-}
+  hiddenTitle: PropTypes.bool,
+  params: PropTypes.object,
+  onNavigate: PropTypes.func,
+};
 
 Layout.defaultProps = {
-  hiddenTitle: false
-}
+  hiddenTitle: false,
+};
 
-export default Layout
+export default Layout;
