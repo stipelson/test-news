@@ -14,7 +14,12 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+0. **Edit environment variables**
+
+   - Copy files `.env.development.example` to `.env.development` and `.env.production.example` to `.env.production`.
+   - Add api key from news api provided.
+
+1)  **Create a Gatsby site.**
 
     Use the Gatsby CLI to create a new site, specifying the default starter.
 
@@ -23,7 +28,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
     ```
 
-1.  **Start developing.**
+1)  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
@@ -32,7 +37,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+1)  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 

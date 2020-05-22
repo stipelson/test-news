@@ -7,6 +7,9 @@ import {
 
 import request from '../lib/request';
 
+const apiKey = process.env.NEWS_KEY;
+const url = process.env.NEWS_URL;
+
 export const fetchNewsSuccess = (articles) => ({
   type: FETCH_NEWS_SUCCESS,
   articles,
@@ -25,10 +28,6 @@ export const fetchNewsError = (error) => ({
 export function loadNews({ options, reload = false }) {
   return async (dispatch) => {
     dispatch({ type: FETCH_NEWS });
-
-    const apiKey = '65e9cbc8-be98-4b0e-a423-005257373b5f';
-    const url =
-      'http://eventregistry.org/api/v1/article/getArticlesForTopicPage';
 
     let params = {
       uri: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
