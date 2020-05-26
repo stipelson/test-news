@@ -130,16 +130,12 @@ const ContactForm = ({ title, onValidForm }) => {
                   />
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} role="textbox">
-                  <Checkbox
-                    label="Send me emails about breaking news and promotions."
-                    className="mt-0 mb-46"
-                    name="subscription"
-                    onChange={handleOnChange}
-                  />
-                </Col>
-              </Row>
+              <Checkbox
+                label="Send me emails about breaking news and promotions."
+                className="mt-0 mb-46"
+                name="subscription"
+                onChange={handleOnChange}
+              />
               <div className="text-center submit-button">
                 <Button
                   type="submit"

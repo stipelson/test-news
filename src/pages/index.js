@@ -27,6 +27,15 @@ export const IndexPage = ({ loadNews, loading, articles, location }) => {
   });
   const params = getParams(location.search);
 
+  const stateSchema = {
+    fname: { value: '', error: '' },
+    lname: { value: '', error: '' },
+    email: { value: '', error: '' },
+    phone: { value: '', error: '' },
+    message: { value: '', error: '' },
+    subscription: { value: false, error: '' },
+  };
+
   const bannerContent =
     'Subscribe to our newsletter to receive weekly digests of the ' +
     'best and most ground-breaking news. Also receive a discount on ' +
@@ -92,7 +101,11 @@ export const IndexPage = ({ loadNews, loading, articles, location }) => {
         }}
       />
 
-      <ContactForm title="Contact Us" onValidForm={handleValidForm} />
+      <ContactForm
+        title="Contact Us"
+        onValidForm={handleValidForm}
+        stateSchema={stateSchema}
+      />
 
       <Modal
         onHide={() => {

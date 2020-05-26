@@ -108,3 +108,9 @@ exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`ArticlesList: render Row has the class 1`] = `
+<div
+  className="eui-row extra-p-md-6"
+/>
+`;

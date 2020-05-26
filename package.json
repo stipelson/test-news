@@ -62,7 +62,8 @@
     "watch-test": "jest --watch"
   },
   "pre-commit": [
-    "test-eslint"
+    "test-eslint",
+    "test"
   ],
   "repository": {
     "type": "git",

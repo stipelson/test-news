@@ -1,13 +1,14 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import sinon from 'sinon';
+import Row from 'emerald-ui/lib/Row';
 
 import ArticlesList from '../ArticlesList';
 import ArticleItem from '../ArticleItem';
 
 describe('ArticlesList: render', () => {
   it('No passed articles and render correctly', () => {
-    const component = create(<ArticlesList loading={false} />);
+    const component = create(<ArticlesList />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
@@ -15,6 +16,17 @@ describe('ArticlesList: render', () => {
 
     const items = instance.findAllByType(ArticleItem);
     expect(items.length).toBe(0);
+  });
+
+  it('Row has the class', () => {
+    const component = create(<ArticlesList />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+
+    let instance = component.root;
+
+    const row = instance.findByType(Row);
+    expect(row.props.className).toEqual('extra-p-md-6');
   });
 
   it('Passed articles and render list correctly', () => {
@@ -28,9 +40,7 @@ describe('ArticlesList: render', () => {
 
     const articles = [article, article, article, article];
 
-    const component = create(
-      <ArticlesList articles={articles} loading={false} />
-    );
+    const component = create(<ArticlesList articles={articles} />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 
@@ -56,7 +66,7 @@ describe('ArticlesList: throws error when', () => {
   it('Not-array-articles is passed to articles list', () => {
     const articles = 'This is a string';
 
-    create(<ArticlesList articles={articles} loading={false} />);
+    create(<ArticlesList articles={articles} />);
 
     expect(error.called).toEqual(true);
   });
