@@ -41,6 +41,8 @@ const Layout = ({ children, hiddenTitle, params, onNavigate }) => {
         brandLogo={BrandLogo}
         params={params}
         onNavigate={onNavigate}
+        menuNav
+        userNav
       />
       {showAlert && (
         <div className="container">

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner renders banner correctly 1`] = `
+<section
+  className="banner"
+  id="banner"
+>
+  <img
+    className="banner-background"
+    src="test-file-stub"
+  />
+  <div
+    className="container banner-body"
+  >
+    <div
+      className="eui-row"
+    >
+      <div
+        className="eui-col sample-col eui-col-xs-6"
+      >
+        <h2
+          className="text-white banner-title"
+        >
+          Subscribe to our newsletter.
+        </h2>
+        <p
+          className="text-white"
+        >
+          Test content
+        </p>
+        <button
+          aria-label="Button for subscribe"
+          className="eui-btn eui-btn-default eui-btn-outline eui-btn-sm eui-btn-inverted btn-padding-lg"
+          onClick={[Function]}
+          role="button"
+          type="button"
+        >
+          <div
+            className="eui-btn-content"
+          >
+            <span
+              className="caption"
+            >
+              <span>
+                Subscribe
+              </span>
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;

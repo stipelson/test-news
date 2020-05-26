@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Header from '../header';
+import Header from '../Header';
 import BrandLogo from '../../assets/images/logo.svg';
 
 describe('Header', () => {
@@ -16,7 +16,6 @@ describe('Header', () => {
         />
       )
       .toJSON();
-    // expect(tree).toMatchSnapshot();
-    console.log(tree);
+    expect(tree).toMatchSnapshot();
   });
 });

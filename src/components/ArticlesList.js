@@ -24,12 +24,10 @@ const ArticlesList = ({ articles }) => {
 
 ArticlesList.propTypes = {
   articles: PropTypes.array,
-  loading: PropTypes.bool,
 };
 
 ArticlesList.defaultProps = {
   articles: [],
-  loading: false,
 };
 
 export default ArticlesList;

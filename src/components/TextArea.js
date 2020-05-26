@@ -18,7 +18,11 @@ const TextArea = ({ id, label, className, errorMessage, role, ...rest }) => {
       ].join(' ')}
     >
       <div className="eui-text-field-wrapper">
-        <textarea {...inputElementProps} aria-label={label}></textarea>
+        <textarea
+          {...inputElementProps}
+          aria-label={label}
+          className="custom-textarea"
+        ></textarea>
         <div className="eui-text-field-footer">
           <span
             id={`${id}ErrorMessage`}

@@ -6,6 +6,5 @@ export function getParams(url) {
     var pair = vars[i].split('=');
     params[pair[0]] = decodeURIComponent(pair[1]);
   }
-  console.log(params);
   return params;
 }
