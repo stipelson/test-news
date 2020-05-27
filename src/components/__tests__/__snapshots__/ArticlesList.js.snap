@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlesList: render No passed articles and render correctly 1`] = `
+<div
+  className="eui-row extra-p-md-6"
+/>
+`;
+
+exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
+<div
+  className="eui-row extra-p-md-6"
+>
+  <div
+    className="eui-col mb-46 eui-col-xs-6"
+  >
+    <section>
+      <a
+        className="list-item"
+        href="https://www.google.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Constant Technological ..."
+          className="list-item-image"
+          src="https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_960_720.png"
+        />
+        <h3>
+          Constant Technological ...
+        </h3>
+        <p>
+          - The advancements in the field  ...
+        </p>
+      </a>
+    </section>
+  </div>
+  <div
+    className="eui-col mb-46 eui-col-xs-6"
+  >
+    <section>
+      <a
+        className="list-item"
+        href="https://www.google.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Constant Technological ..."
+          className="list-item-image"
+          src="https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_960_720.png"
+        />
+        <h3>
+          Constant Technological ...
+        </h3>
+        <p>
+          - The advancements in the field  ...
+        </p>
+      </a>
+    </section>
+  </div>
+  <div
+    className="eui-col mb-46 eui-col-xs-6"
+  >
+    <section>
+      <a
+        className="list-item"
+        href="https://www.google.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Constant Technological ..."
+          className="list-item-image"
+          src="https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_960_720.png"
+        />
+        <h3>
+          Constant Technological ...
+        </h3>
+        <p>
+          - The advancements in the field  ...
+        </p>
+      </a>
+    </section>
+  </div>
+  <div
+    className="eui-col mb-46 eui-col-xs-6"
+  >
+    <section>
+      <a
+        className="list-item"
+        href="https://www.google.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Constant Technological ..."
+          className="list-item-image"
+          src="https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_960_720.png"
+        />
+        <h3>
+          Constant Technological ...
+        </h3>
+        <p>
+          - The advancements in the field  ...
+        </p>
+      </a>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`ArticlesList: render Row has the class 1`] = `
+<div
+  className="eui-row extra-p-md-6"
+/>
+`;

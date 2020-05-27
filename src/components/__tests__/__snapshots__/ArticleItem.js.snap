@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleItem: render Body prop is rendered correctly 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Article image"
+      className="list-item-image"
+    />
+    <h3 />
+    <p>
+      Test Article Title
+    </p>
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render Image ever has alt 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Article image"
+      className="list-item-image"
+    />
+    <h3 />
+    <p />
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render Image has alt equal to title 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Test Article Title"
+      className="list-item-image"
+    />
+    <h3>
+      Test Article Title
+    </h3>
+    <p />
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render Title prop is rendered correctly 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Test Article Title"
+      className="list-item-image"
+    />
+    <h3>
+      Test Article Title
+    </h3>
+    <p />
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render has the image class 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Article image"
+      className="list-item-image"
+    />
+    <h3 />
+    <p />
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render has the link class 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Article image"
+      className="list-item-image"
+    />
+    <h3 />
+    <p />
+  </a>
+</section>
+`;
+
+exports[`ArticleItem: render renders article item correctly 1`] = `
+<section>
+  <a
+    className="list-item"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Article image"
+      className="list-item-image"
+    />
+    <h3 />
+    <p />
+  </a>
+</section>
+`;

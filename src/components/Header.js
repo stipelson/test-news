@@ -8,7 +8,14 @@ import DropdownButton from 'emerald-ui/lib/DropdownButton';
 import Avatar from 'emerald-ui/lib/Avatar';
 // import { getParams } from '../lib/utils';
 
-const Header = ({ siteTitle, brandLogo, params, onNavigate }) => {
+const Header = ({
+  siteTitle,
+  brandLogo,
+  params,
+  onNavigate,
+  menuNav,
+  userNav,
+}) => {
   const sections = [
     {
       topicId: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
@@ -34,6 +41,48 @@ const Header = ({ siteTitle, brandLogo, params, onNavigate }) => {
 
   let categoryParam = params && params.category ? params.category : '';
 
+  const renderMenuNav = () => {
+    return (
+      <Nav grow collapsible>
+        <DropdownButton title="Sections" id="dd1">
+          {sections.map((section, index) => (
+            <DropdownItem
+              key={`section-dropdown-${index}`}
+              eventKey="2"
+              onClick={() => handleOnClick(section.topicId)}
+              active={categoryParam === section.topicId}
+            >
+              {section.name}
+            </DropdownItem>
+          ))}
+        </DropdownButton>
+        <Link to="/">Editorial</Link>
+        <Link to="/">Contact us</Link>
+      </Nav>
+    );
+  };
+
+  const renderUserNav = () => {
+    return (
+      <Nav>
+        <DropdownButton
+          noCaret
+          fromRight
+          id="dd2"
+          title={<Avatar title="JS" />}
+        >
+          <DropdownItem eventKey="1">Action</DropdownItem>
+          <DropdownItem eventKey="2">Another action</DropdownItem>
+          <DropdownItem eventKey="3" active>
+            Active Item
+          </DropdownItem>
+          <DropdownItem separator />
+          <DropdownItem eventKey="4">Separated link</DropdownItem>
+        </DropdownButton>
+      </Nav>
+    );
+  };
+
   return (
     <header
       style={{
@@ -45,42 +94,11 @@ const Header = ({ siteTitle, brandLogo, params, onNavigate }) => {
         <div className="container display-flex">
           <Navbar.Brand>
             <Link to="/">
-              {/* <Img fluid={''} alt={siteTitle}/> */}
               <img src={brandLogo} alt={`Logo ${siteTitle}`} />
             </Link>
           </Navbar.Brand>
-          <Nav grow collapsible>
-            <DropdownButton title="Sections" id="dd1">
-              {sections.map((section, index) => (
-                <DropdownItem
-                  key={`section-dropdown-${index}`}
-                  eventKey="2"
-                  onClick={() => handleOnClick(section.topicId)}
-                  active={categoryParam === section.topicId}
-                >
-                  {section.name}
-                </DropdownItem>
-              ))}
-            </DropdownButton>
-            <Link to="/">Editorial</Link>
-            <Link to="/">Contact us</Link>
-          </Nav>
-          <Nav>
-            <DropdownButton
-              noCaret
-              fromRight
-              id="dd2"
-              title={<Avatar title="JS" />}
-            >
-              <DropdownItem eventKey="1">Action</DropdownItem>
-              <DropdownItem eventKey="2">Another action</DropdownItem>
-              <DropdownItem eventKey="3" active>
-                Active Item
-              </DropdownItem>
-              <DropdownItem separator />
-              <DropdownItem eventKey="4">Separated link</DropdownItem>
-            </DropdownButton>
-          </Nav>
+          {menuNav && renderMenuNav()}
+          {userNav && renderUserNav()}
         </div>
       </Navbar>
     </header>
@@ -93,10 +111,14 @@ Header.propTypes = {
   location: PropTypes.any,
   params: PropTypes.object,
   onNavigate: PropTypes.func,
+  menuNav: PropTypes.bool,
+  userNav: PropTypes.bool,
 };
 
 Header.defaultProps = {
   siteTitle: '',
+  menuNav: false,
+  userNav: false,
 };
 
 export default Header;

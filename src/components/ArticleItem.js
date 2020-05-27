@@ -12,7 +12,11 @@ const ArticleItem = ({ title, body, image, url }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={image} alt={title} className="list-item-image" />
+        <img
+          src={image}
+          alt={title || 'Article image'}
+          className="list-item-image"
+        />
         <h3>{title}</h3>
         <p>{body}</p>
       </a>

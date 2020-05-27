@@ -18,7 +18,14 @@ import * as searchActions from '../state/actions';
 import { getParams } from '../lib/utils';
 import { navigate } from '@reach/router';
 
-const IndexPage = ({ loadNews, loading, articles, location }) => {
+export const IndexPage = ({
+  loadNews,
+  loading,
+  articles,
+  location,
+  menuNav = true,
+  userNav = true,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const [query, setQuery] = useState({
@@ -43,12 +50,12 @@ const IndexPage = ({ loadNews, loading, articles, location }) => {
     setQuery({ ...prevQuery, page: prevQuery.page + 1 });
   };
 
-  const handleNavigate = (navTipicId) => {
+  const handleNavigate = (navTopicId) => {
     const prevQuery = query;
     if (!loading) {
-      navigate(`?category=${navTipicId}`);
-      loadNews({ options: { articlesPage: 1, uri: navTipicId }, reload: true });
-      setQuery({ ...prevQuery, page: 2, topicId: navTipicId });
+      navigate(`?category=${navTopicId}`);
+      loadNews({ options: { articlesPage: 1, uri: navTopicId }, reload: true });
+      setQuery({ ...prevQuery, page: 2, topicId: navTopicId });
     }
   };
 
@@ -57,7 +64,13 @@ const IndexPage = ({ loadNews, loading, articles, location }) => {
   }
 
   return (
-    <Layout hiddenTitle params={params} onNavigate={handleNavigate}>
+    <Layout
+      hiddenTitle
+      params={params}
+      onNavigate={handleNavigate}
+      menuNav={menuNav}
+      userNav={userNav}
+    >
       <SEO title="Home" />
 
       <div className="container main-container">
@@ -130,22 +143,23 @@ IndexPage.propTypes = {
   /* Reducers */
   articles: PropTypes.array,
   loading: PropTypes.bool,
+  menuNav: PropTypes.bool,
+  userNav: PropTypes.bool,
 };
 
-function mapDispatchToProps(dispatch) {
+export const mapDispatchToProps = (dispatch) => {
   const actions = bindActionCreators(searchActions, dispatch);
   return {
     dispatch,
     ...actions,
   };
-}
+};
+
+export const mapStateToProps = (state) => ({
+  articles: state.app.articles,
+  loading: state.app.loading,
+  error: state.app.error,
+});
 
 // export default IndexPage;
-export default connect(
-  (state) => ({
-    articles: state.app.articles,
-    loading: state.app.loading,
-    error: state.app.error,
-  }),
-  mapDispatchToProps
-)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

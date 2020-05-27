@@ -13,10 +13,17 @@ import BrandLogo from '../assets/images/logo.svg';
 import Header from './Header';
 import Alert from 'emerald-ui/lib/Alert';
 
-const Layout = ({ children, hiddenTitle, params, onNavigate }) => {
+const Layout = ({
+  children,
+  hiddenTitle,
+  params,
+  onNavigate,
+  menuNav,
+  userNav,
+}) => {
   const [showAlert, setShowAlert] = useState(true);
 
-  const { site } = useStaticQuery(
+  const query = useStaticQuery(
     graphql`
       query {
         site {
@@ -34,13 +41,17 @@ const Layout = ({ children, hiddenTitle, params, onNavigate }) => {
   return (
     <>
       {hiddenTitle && (
-        <h1 className="title-hidden">{site.siteMetadata.title}</h1>
+        <h1 className="title-hidden">
+          {query ? query.site.siteMetadata.title : 'Site title'}
+        </h1>
       )}
       <Header
-        siteTitle={site.siteMetadata.title}
+        siteTitle={query ? query.site.siteMetadata.title : 'Site title'}
         brandLogo={BrandLogo}
         params={params}
         onNavigate={onNavigate}
+        menuNav={menuNav}
+        userNav={userNav}
       />
       {showAlert && (
         <div className="container">
@@ -59,10 +70,14 @@ Layout.propTypes = {
   hiddenTitle: PropTypes.bool,
   params: PropTypes.object,
   onNavigate: PropTypes.func,
+  menuNav: PropTypes.bool,
+  userNav: PropTypes.bool,
 };
 
 Layout.defaultProps = {
   hiddenTitle: false,
+  menuNav: false,
+  userNav: false,
 };
 
 export default Layout;

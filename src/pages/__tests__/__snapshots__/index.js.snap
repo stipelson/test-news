@@ -1,0 +1,454 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index render renders correctly 1`] = `
+Array [
+  <h1
+    className="title-hidden"
+  >
+    Site title
+  </h1>,
+  <header
+    style={
+      Object {
+        "background": "rebeccapurple",
+        "marginBottom": "1.45rem",
+      }
+    }
+  >
+    <div
+      className="eui-navbar eui-navbar-light break-at-sm fixed-at-top"
+      onClick={[Function]}
+      role="presentation"
+    >
+      <div
+        className="eui-navbar-bar"
+      >
+        <div
+          className="container display-flex"
+        >
+          <div
+            className="eui-navbar-brand"
+          >
+            <a
+              href="/"
+            >
+              <img
+                alt="Logo Site title"
+                src="test-file-stub"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="eui-navbar-collapsed"
+      />
+    </div>
+  </header>,
+  <div
+    className="container"
+  >
+    <div
+      className="eui-alert eui-alert-info"
+      role="alert"
+    >
+      <div>
+        Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
+      </div>
+      <button
+        className="eui-icon-button"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <i
+          className="eui-icon material-icons"
+        >
+          cancel
+        </i>
+      </button>
+    </div>
+  </div>,
+  <main>
+    <div
+      className="container main-container"
+    >
+      <h2
+        className="mt-0"
+      >
+        Top news
+      </h2>
+      <div
+        className="eui-panel card-container eui-panel-default"
+      >
+        <div
+          className="eui-panel-body"
+        >
+          <div
+            className="eui-row extra-p-md-6"
+          />
+        </div>
+      </div>
+      <div
+        className="text-center"
+      >
+        <button
+          aria-busy={false}
+          className="eui-btn eui-btn-primary eui-btn-classic eui-btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          role="button"
+          type="button"
+        >
+          <div
+            className="eui-btn-content"
+          >
+            <span
+              className="caption"
+            >
+              View more stories
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <section
+      className="banner"
+      id="banner"
+    >
+      <img
+        className="banner-background"
+        src="test-file-stub"
+      />
+      <div
+        className="container banner-body"
+      >
+        <div
+          className="eui-row"
+        >
+          <div
+            className="eui-col sample-col eui-col-xs-6"
+          >
+            <h2
+              className="text-white banner-title"
+            >
+              Subscribe to our newsletter.
+            </h2>
+            <p
+              className="text-white"
+            >
+              Subscribe to our newsletter to receive weekly digests of the best and most ground-breaking news. Also receive a discount on your monthly subscription.
+            </p>
+            <button
+              aria-label="Button for subscribe"
+              className="eui-btn eui-btn-default eui-btn-outline eui-btn-sm eui-btn-inverted btn-padding-lg"
+              onClick={[Function]}
+              role="button"
+              type="button"
+            >
+              <div
+                className="eui-btn-content"
+              >
+                <span
+                  className="caption"
+                >
+                  <span>
+                    Subscribe
+                  </span>
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="contact"
+    >
+      <div
+        className="container"
+      >
+        <h2
+          className="mt-0 text-center"
+        >
+          Contact Us
+        </h2>
+        <div
+          className="eui-panel card-container eui-panel-default"
+        >
+          <div
+            className="eui-panel-body"
+          >
+            <form
+              onSubmit={[Function]}
+            >
+              <div
+                className="eui-row extra-p-md-6"
+              >
+                <div
+                  className="eui-col mb-46 eui-col-xs-6"
+                >
+                  <div
+                    className="eui-text-field"
+                  >
+                    <div
+                      className="eui-text-field-wrapper"
+                    >
+                      <input
+                        aria-errormessage="undefinedErrorMessage"
+                        aria-invalid={false}
+                        aria-label="First Name"
+                        disabled={false}
+                        name="first_name"
+                        onChange={[Function]}
+                        onKeyPress={[Function]}
+                        role="textbox"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="eui-text-field-footer"
+                      >
+                        <span
+                          className="eui-text-field-message eui-text-field-error-message"
+                          id="undefinedErrorMessage"
+                          role="alert"
+                        >
+                          
+                        </span>
+                        <span
+                          className="eui-text-field-message eui-text-field-help-text"
+                        />
+                      </div>
+                    </div>
+                    <label>
+                      First Name
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="eui-col mb-46 eui-col-xs-6"
+                >
+                  <div
+                    className="eui-text-field"
+                  >
+                    <div
+                      className="eui-text-field-wrapper"
+                    >
+                      <input
+                        aria-errormessage="undefinedErrorMessage"
+                        aria-invalid={false}
+                        aria-label="Last Name"
+                        disabled={false}
+                        name="last_name"
+                        onChange={[Function]}
+                        onKeyPress={[Function]}
+                        role="textbox"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="eui-text-field-footer"
+                      >
+                        <span
+                          className="eui-text-field-message eui-text-field-error-message"
+                          id="undefinedErrorMessage"
+                          role="alert"
+                        >
+                          
+                        </span>
+                        <span
+                          className="eui-text-field-message eui-text-field-help-text"
+                        />
+                      </div>
+                    </div>
+                    <label>
+                      Last Name
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="eui-row extra-p-md-6"
+              >
+                <div
+                  className="eui-col mb-46 eui-col-xs-6"
+                >
+                  <div
+                    className="eui-text-field"
+                  >
+                    <div
+                      className="eui-text-field-wrapper"
+                    >
+                      <input
+                        aria-errormessage="undefinedErrorMessage"
+                        aria-invalid={false}
+                        aria-label="Email"
+                        disabled={false}
+                        name="email"
+                        onChange={[Function]}
+                        onKeyPress={[Function]}
+                        role="textbox"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="eui-text-field-footer"
+                      >
+                        <span
+                          className="eui-text-field-message eui-text-field-error-message"
+                          id="undefinedErrorMessage"
+                          role="alert"
+                        >
+                          
+                        </span>
+                        <span
+                          className="eui-text-field-message eui-text-field-help-text"
+                        />
+                      </div>
+                    </div>
+                    <label>
+                      Email
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="eui-col mb-46 eui-col-xs-6"
+                >
+                  <div
+                    className="eui-text-field"
+                  >
+                    <div
+                      className="eui-text-field-wrapper"
+                    >
+                      <input
+                        aria-errormessage="undefinedErrorMessage"
+                        aria-invalid={false}
+                        aria-label="Phone Number"
+                        disabled={false}
+                        name="phone"
+                        onChange={[Function]}
+                        onKeyPress={[Function]}
+                        role="textbox"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="eui-text-field-footer"
+                      >
+                        <span
+                          className="eui-text-field-message eui-text-field-error-message"
+                          id="undefinedErrorMessage"
+                          role="alert"
+                        >
+                          
+                        </span>
+                        <span
+                          className="eui-text-field-message eui-text-field-help-text"
+                        />
+                      </div>
+                    </div>
+                    <label>
+                      Phone Number
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="eui-row"
+              >
+                <div
+                  className="eui-col mb-46 eui-col-xs-12"
+                  role="textbox"
+                >
+                  <div
+                    className="eui-text-field  "
+                  >
+                    <div
+                      className="eui-text-field-wrapper"
+                    >
+                      <textarea
+                        aria-errormessage="undefinedErrorMessage"
+                        aria-invalid={false}
+                        aria-label="Message"
+                        className="custom-textarea"
+                        name="message"
+                        onChange={[Function]}
+                        role="textbox"
+                        rows="4"
+                        value=""
+                      />
+                      <div
+                        className="eui-text-field-footer"
+                      >
+                        <span
+                          className="eui-text-field-message eui-text-field-error-message "
+                          id="undefinedErrorMessage"
+                          role="alert"
+                        >
+                          
+                        </span>
+                        <span
+                          className="eui-text-field-message eui-text-field-help-text"
+                        />
+                      </div>
+                    </div>
+                    <label>
+                      Message
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <label
+                className="eui-checkbox mt-0 mb-46 eui-has-label"
+              >
+                <input
+                  className="eui-checkbox-input"
+                  name="email_subscription"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  type="checkbox"
+                />
+                <div
+                  className="eui-checkbox-check"
+                  onClick={[Function]}
+                  role="presentation"
+                />
+                <span
+                  className="eui-checkbox-label"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  Send me emails about breaking news and promotions.
+                </span>
+              </label>
+              <div
+                className="text-center submit-button"
+              >
+                <button
+                  aria-label="Subscribe to newsletter"
+                  className="eui-btn eui-btn-primary eui-btn-classic eui-btn-sm eui-btn-inverted btn-padding-lg"
+                  role="button"
+                  type="submit"
+                >
+                  <div
+                    className="eui-btn-content"
+                  >
+                    <span
+                      className="caption"
+                    >
+                      <span>
+                        Submit form
+                      </span>
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>,
+]
+`;

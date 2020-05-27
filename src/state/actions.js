@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 import {
   FETCH_NEWS,
   FETCH_NEWS_SUCCESS,
@@ -7,8 +9,8 @@ import {
 
 import request from '../lib/request';
 
-const apiKey = '65e9cbc8-be98-4b0e-a423-005257373b5f';
-const url = `${
+export const apiKey = '65e9cbc8-be98-4b0e-a423-005257373b5f';
+export const url = `${
   process.env.NODE_ENV === 'development' ? 'http' : 'https'
 }://eventregistry.org/api/v1/article/getArticlesForTopicPage`;
 
@@ -28,8 +30,10 @@ export const fetchNewsError = (error) => ({
 });
 
 export function loadNews({ options, reload = false }) {
-  return async (dispatch) => {
-    dispatch({ type: FETCH_NEWS });
+  return async (dispatch = false) => {
+    if (typeof dispatch === 'function') {
+      dispatch({ type: FETCH_NEWS });
+    }
 
     let params = {
       uri: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
@@ -52,16 +56,22 @@ export function loadNews({ options, reload = false }) {
           response.data.articles &&
           Array.isArray(response.data.articles.results)
         ) {
-          if (!reload)
-            dispatch(fetchMoreNewsSuccess(response.data.articles.results));
-          else dispatch(fetchNewsSuccess(response.data.articles.results));
+          if (typeof dispatch === 'function') {
+            if (!reload)
+              dispatch(fetchMoreNewsSuccess(response.data.articles.results));
+            else dispatch(fetchNewsSuccess(response.data.articles.results));
+          }
         }
+        return response;
       })
       .catch((error) => {
         // handle error
         console.log(error);
-        dispatch(fetchNewsError(error));
-        alert(error);
+        if (typeof dispatch === 'function') {
+          dispatch(fetchNewsError(error));
+          alert(error);
+        }
+        return error;
       });
   };
 }

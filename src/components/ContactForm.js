@@ -13,19 +13,19 @@ import useForm from '../lib/useForm';
 
 const ContactForm = ({ title, onValidForm }) => {
   const stateSchema = {
-    fname: { value: '', error: '' },
-    lname: { value: '', error: '' },
+    first_name: { value: '', error: '' },
+    last_name: { value: '', error: '' },
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
     message: { value: '', error: '' },
-    subscription: { value: false, error: '' },
+    email_subscription: { value: false, error: '' },
   };
 
   const validationStateSchema = {
-    fname: {
+    first_name: {
       required: true,
     },
-    lname: {
+    last_name: {
       required: true,
     },
     email: {
@@ -45,7 +45,7 @@ const ContactForm = ({ title, onValidForm }) => {
     message: {
       required: true,
     },
-    subscription: {
+    email_subscription: {
       required: false,
     },
   };
@@ -53,12 +53,12 @@ const ContactForm = ({ title, onValidForm }) => {
   const onSubmitForm = (state) => {
     if (state) {
       const values = {
-        first_name: state.fname.value,
-        last_name: state.lname.value,
+        first_name: state.first_name.value,
+        last_name: state.last_name.value,
         email: state.email.value,
         phone: state.phone.value,
         message: state.message.value,
-        email_subscription: state.subscription.value,
+        email_subscription: state.email_subscription.value,
       };
       onValidForm(JSON.stringify(values, null, 2));
     }
@@ -82,19 +82,19 @@ const ContactForm = ({ title, onValidForm }) => {
                 <Col xs={6} className="mb-46">
                   <TextField
                     label="First Name"
-                    name="fname"
+                    name="first_name"
                     onChange={handleOnChange}
-                    value={state.fname.value}
-                    errorMessage={state.fname.error}
+                    value={state.first_name.value}
+                    errorMessage={state.first_name.error}
                   />
                 </Col>
                 <Col xs={6} className="mb-46">
                   <TextField
                     label="Last Name"
-                    name="lname"
+                    name="last_name"
                     onChange={handleOnChange}
-                    value={state.lname.value}
-                    errorMessage={state.lname.error}
+                    value={state.last_name.value}
+                    errorMessage={state.last_name.error}
                   />
                 </Col>
               </Row>
@@ -130,16 +130,12 @@ const ContactForm = ({ title, onValidForm }) => {
                   />
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} role="textbox">
-                  <Checkbox
-                    label="Send me emails about breaking news and promotions."
-                    className="mt-0 mb-46"
-                    name="subscription"
-                    onChange={handleOnChange}
-                  />
-                </Col>
-              </Row>
+              <Checkbox
+                label="Send me emails about breaking news and promotions."
+                className="mt-0 mb-46"
+                name="email_subscription"
+                onChange={handleOnChange}
+              />
               <div className="text-center submit-button">
                 <Button
                   type="submit"

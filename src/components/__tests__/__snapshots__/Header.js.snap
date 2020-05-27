@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  style={
+    Object {
+      "background": "rebeccapurple",
+      "marginBottom": "1.45rem",
+    }
+  }
+>
+  <div
+    className="eui-navbar eui-navbar-light break-at-sm fixed-at-top"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <div
+      className="eui-navbar-bar"
+    >
+      <div
+        className="container display-flex"
+      >
+        <div
+          className="eui-navbar-brand"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="Logo Default Starter"
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="eui-navbar-collapsed"
+    />
+  </div>
+</header>
+`;
