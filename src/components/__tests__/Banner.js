@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { create, act } from 'react-test-renderer';
 import Col from 'emerald-ui/lib/Col';
 import Button from 'emerald-ui/lib/Button';
 
@@ -7,40 +7,30 @@ import ParallaxImage from '../../assets/images/parallax-2x.jpg';
 import Banner from '../Banner';
 
 describe('Banner: render', () => {
+  let component;
+  let instance;
+
+  beforeAll(() => {
+    component = create(<Banner />);
+    instance = component.root;
+  });
+
   it('renders banner correctly', () => {
-    const tree = renderer.create(<Banner />).toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('has the section class', () => {
-    const component = renderer.create(<Banner />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const section = instance.findByType('section');
     expect(section.props.className).toEqual('banner');
   });
 
   it('img has the class', () => {
-    const component = renderer.create(<Banner />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const img = instance.findByType('img');
     expect(img.props.className).toEqual('banner-background');
   });
 
   it('container has the class', () => {
-    const component = renderer.create(<Banner />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     // Verify container class
     const section = instance.findByType('section');
     const container = section.findByType('div');
@@ -60,12 +50,6 @@ describe('Banner: render', () => {
   });
 
   it('Button has the class and caption', () => {
-    const component = renderer.create(<Banner />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     // Verify button class
     const button = instance.findByType(Button);
     expect(button.props.className).toEqual('eui-btn-inverted btn-padding-lg');
@@ -78,19 +62,26 @@ describe('Banner: render', () => {
 });
 
 describe('Banner: content', () => {
+  let component;
+  let actionMock;
+
+  beforeAll(() => {
+    component = create(<Banner />);
+    actionMock = jest.fn();
+  });
+
   it('Banner render props content', () => {
-    const actionMock = jest.fn();
-    const component = renderer.create(
-      <Banner
-        title="Test title"
-        content="Test content"
-        buttonLabel="Test button label"
-        buttonAriaLabel="Test button aria label"
-        buttonAction={actionMock}
-      />
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+      component.update(
+        <Banner
+          title="Test title"
+          content="Test content"
+          buttonLabel="Test button label"
+          buttonAriaLabel="Test button aria label"
+          buttonAction={actionMock}
+        />
+      );
+    });
 
     let instance = component.root;
 
@@ -111,5 +102,36 @@ describe('Banner: content', () => {
 
     const span = button.findByProps({ className: 'caption' });
     expect(span.children[0].children).toEqual(['Test button label']);
+  });
+});
+
+describe('Banner: actions', () => {
+  it('should have default buttonAction', () => {
+    expect(Banner.defaultProps.buttonAction).toBeDefined();
+  });
+
+  it('response default buttonAction', () => {
+    const result = Banner.defaultProps.buttonAction();
+    expect(result).toBe(false);
+  });
+
+  it('Banner subscribe action', () => {
+    const actionMock = jest.fn();
+    const component = create(
+      <Banner
+        title="Test title"
+        content="Test content"
+        buttonLabel="Test button label"
+        buttonAriaLabel="Test button aria label"
+        buttonAction={actionMock}
+      />
+    );
+
+    const instance = component.root;
+    const button = instance.findByType(Button);
+
+    button.props.onClick();
+
+    expect(actionMock).toHaveBeenCalledTimes(1);
   });
 });

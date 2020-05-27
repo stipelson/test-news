@@ -51,7 +51,7 @@ Banner.defaultProps = {
   buttonLabel: '',
   buttonAriaLabel: '',
   buttonAction: () => {
-    return;
+    return false;
   },
 };
 

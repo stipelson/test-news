@@ -1,42 +1,218 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders correctly 1`] = `
-<header
-  style={
-    Object {
-      "background": "rebeccapurple",
-      "marginBottom": "1.45rem",
-    }
-  }
->
-  <div
-    className="eui-navbar eui-navbar-light break-at-sm fixed-at-top"
-    onClick={[Function]}
-    role="presentation"
+exports[`Header: render and actions renders correctly 1`] = `
+<div>
+  <header
+    style="background: rebeccapurple; margin-bottom: 1.45rem;"
   >
     <div
-      className="eui-navbar-bar"
+      class="eui-navbar eui-navbar-light break-at-sm fixed-at-top"
+      role="presentation"
     >
       <div
-        className="container display-flex"
+        class="eui-navbar-bar"
       >
         <div
-          className="eui-navbar-brand"
+          class="container display-flex"
         >
-          <a
-            href="/"
+          <div
+            class="eui-navbar-brand"
           >
-            <img
-              alt="Logo Default Starter"
-              src="test-file-stub"
-            />
-          </a>
+            <a
+              href="/"
+            >
+              <img
+                alt="Logo Default Starter"
+                src="test-file-stub"
+              />
+            </a>
+          </div>
+          <nav
+            class="eui-nav grow collapsible eui-nav-light"
+          >
+            <div
+              aria-disabled="false"
+              class="eui-dropdown"
+              id="dd1"
+            >
+              <button
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="eui-btn eui-btn-default eui-btn-classic eui-btn-xs eui-dropdown-toggle"
+                role="button"
+                tabindex="0"
+                type="button"
+              >
+                <div
+                  class="eui-btn-content"
+                >
+                  <span
+                    class="caption"
+                  >
+                    Sections
+                    <span
+                      class="caret"
+                    />
+                  </span>
+                </div>
+              </button>
+              <div
+                aria-expanded="false"
+                aria-hidden="true"
+                class="eui-dropdown-menu"
+                role="menu"
+                tabindex="-1"
+              >
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  data-testid="section-action"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Health
+                </a>
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  data-testid="section-action"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Renewable Energy
+                </a>
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  data-testid="section-action"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Cyber Security
+                </a>
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  data-testid="section-action"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Technology
+                </a>
+              </div>
+            </div>
+            <a
+              aria-disabled="false"
+              href="/"
+              tabindex="0"
+            >
+              Editorial
+            </a>
+            <a
+              aria-disabled="false"
+              href="/"
+              tabindex="0"
+            >
+              Contact us
+            </a>
+          </nav>
+          <nav
+            class="eui-nav eui-nav-light"
+          >
+            <div
+              aria-disabled="false"
+              class="eui-dropdown"
+              id="dd2"
+            >
+              <button
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="eui-btn eui-btn-default eui-btn-classic eui-btn-xs eui-dropdown-toggle"
+                role="button"
+                tabindex="0"
+                type="button"
+              >
+                <div
+                  class="eui-btn-content"
+                >
+                  <span
+                    class="caption"
+                  >
+                    <div
+                      class="eui-avatar eui-avatar-xs"
+                      style="background-color: rgb(145, 0, 173); color: rgb(255, 255, 255);"
+                    >
+                      <span
+                        class="eui-avatar-initials"
+                      >
+                        JS
+                      </span>
+                    </div>
+                  </span>
+                </div>
+              </button>
+              <div
+                aria-expanded="false"
+                aria-hidden="true"
+                class="eui-dropdown-menu"
+                role="menu"
+                tabindex="-1"
+              >
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Action
+                </a>
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Another action
+                </a>
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item active"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Active Item
+                </a>
+                <div
+                  aria-hidden="true"
+                  class="eui-dropdown-item separator"
+                />
+                <a
+                  aria-hidden="true"
+                  class="eui-dropdown-item"
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Separated link
+                </a>
+              </div>
+            </div>
+          </nav>
         </div>
       </div>
+      <div
+        class="eui-navbar-collapsed"
+      />
     </div>
-    <div
-      className="eui-navbar-collapsed"
-    />
-  </div>
-</header>
+  </header>
+</div>
 `;
