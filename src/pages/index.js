@@ -18,7 +18,14 @@ import * as searchActions from '../state/actions';
 import { getParams } from '../lib/utils';
 import { navigate } from '@reach/router';
 
-export const IndexPage = ({ loadNews, loading, articles, location }) => {
+export const IndexPage = ({
+  loadNews,
+  loading,
+  articles,
+  location,
+  menuNav = true,
+  userNav = true,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const [query, setQuery] = useState({
@@ -26,15 +33,6 @@ export const IndexPage = ({ loadNews, loading, articles, location }) => {
     topicId: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
   });
   const params = getParams(location.search);
-
-  const stateSchema = {
-    fname: { value: '', error: '' },
-    lname: { value: '', error: '' },
-    email: { value: '', error: '' },
-    phone: { value: '', error: '' },
-    message: { value: '', error: '' },
-    subscription: { value: false, error: '' },
-  };
 
   const bannerContent =
     'Subscribe to our newsletter to receive weekly digests of the ' +
@@ -66,7 +64,13 @@ export const IndexPage = ({ loadNews, loading, articles, location }) => {
   }
 
   return (
-    <Layout hiddenTitle params={params} onNavigate={handleNavigate}>
+    <Layout
+      hiddenTitle
+      params={params}
+      onNavigate={handleNavigate}
+      menuNav={menuNav}
+      userNav={userNav}
+    >
       <SEO title="Home" />
 
       <div className="container main-container">
@@ -101,11 +105,7 @@ export const IndexPage = ({ loadNews, loading, articles, location }) => {
         }}
       />
 
-      <ContactForm
-        title="Contact Us"
-        onValidForm={handleValidForm}
-        stateSchema={stateSchema}
-      />
+      <ContactForm title="Contact Us" onValidForm={handleValidForm} />
 
       <Modal
         onHide={() => {
@@ -143,6 +143,8 @@ IndexPage.propTypes = {
   /* Reducers */
   articles: PropTypes.array,
   loading: PropTypes.bool,
+  menuNav: PropTypes.bool,
+  userNav: PropTypes.bool,
 };
 
 export const mapDispatchToProps = (dispatch) => {

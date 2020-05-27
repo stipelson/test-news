@@ -24,12 +24,7 @@ exports[`Header renders correctly 1`] = `
           className="eui-navbar-brand"
         >
           <a
-            aria-current="page"
-            className=""
             href="/"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            style={Object {}}
           >
             <img
               alt="Logo Default Starter"
