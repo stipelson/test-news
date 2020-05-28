@@ -10,25 +10,17 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
-  const query = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
-
+export const PureSEO = ({ description, lang, meta, title, data }) => {
   const metaDescription =
-    description || query
-      ? query.site.siteMetadata.description
+    description || (data && data.site)
+      ? data.site.siteMetadata.description
       : 'Site description';
+
+  const dataTitle =
+    data && data.site ? data.site.siteMetadata.title : 'Site title';
+
+  const dataAuthor =
+    data && data.site ? data.site.siteMetadata.author : 'Site title';
 
   return (
     <Helmet
@@ -36,9 +28,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${
-        query ? query.site.siteMetadata.title : 'Site title'
-      }`}
+      titleTemplate={`%s | ${dataTitle}`}
       meta={[
         {
           name: 'description',
@@ -62,7 +52,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: 'twitter:creator',
-          content: query ? query.site.siteMetadata.author : 'Site author',
+          content: dataAuthor,
         },
         {
           name: 'twitter:title',
@@ -75,19 +65,33 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     />
   );
-}
+};
 
-SEO.defaultProps = {
+PureSEO.defaultProps = {
   lang: 'en',
   meta: [],
   description: '',
 };
 
-SEO.propTypes = {
+PureSEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  data: PropTypes.object,
+};
+
+export const SEO = (props) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+  return <PureSEO {...props} data={data}></PureSEO>;
 };
 
 export default SEO;

@@ -51,17 +51,16 @@ const ContactForm = ({ title, onValidForm }) => {
   };
 
   const onSubmitForm = (state) => {
-    if (state) {
-      const values = {
-        first_name: state.first_name.value,
-        last_name: state.last_name.value,
-        email: state.email.value,
-        phone: state.phone.value,
-        message: state.message.value,
-        email_subscription: state.email_subscription.value,
-      };
-      onValidForm(JSON.stringify(values, null, 2));
-    }
+    const values = {
+      first_name: state.first_name.value,
+      last_name: state.last_name.value,
+      email: state.email.value,
+      phone: state.phone.value,
+      message: state.message.value,
+      email_subscription: state.email_subscription.value,
+    };
+    onValidForm(JSON.stringify(values, null, 2));
+
     return true;
   };
 
@@ -134,6 +133,7 @@ const ContactForm = ({ title, onValidForm }) => {
                 label="Send me emails about breaking news and promotions."
                 className="mt-0 mb-46"
                 name="email_subscription"
+                checked={state.email_subscription.value}
                 onChange={handleOnChange}
               />
               <div className="text-center submit-button">

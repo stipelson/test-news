@@ -14,7 +14,7 @@ import Modal from 'emerald-ui/lib/Modal';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as searchActions from '../state/actions';
+import * as newsActions from '../state/actions';
 import { getParams } from '../lib/utils';
 import { navigate } from '@reach/router';
 
@@ -148,7 +148,7 @@ IndexPage.propTypes = {
 };
 
 export const mapDispatchToProps = (dispatch) => {
-  const actions = bindActionCreators(searchActions, dispatch);
+  const actions = bindActionCreators(newsActions, dispatch);
   return {
     dispatch,
     ...actions,

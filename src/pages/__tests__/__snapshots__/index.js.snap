@@ -52,7 +52,9 @@ Array [
       className="eui-alert eui-alert-info"
       role="alert"
     >
-      <div>
+      <div
+        className="caption"
+      >
         Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
       </div>
       <button
@@ -402,6 +404,7 @@ Array [
                 className="eui-checkbox mt-0 mb-46 eui-has-label"
               >
                 <input
+                  checked={false}
                   className="eui-checkbox-input"
                   name="email_subscription"
                   onBlur={[Function]}

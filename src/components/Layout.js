@@ -13,40 +13,27 @@ import BrandLogo from '../assets/images/logo.svg';
 import Header from './Header';
 import Alert from 'emerald-ui/lib/Alert';
 
-const Layout = ({
+export const PureLayout = ({
   children,
   hiddenTitle,
   params,
   onNavigate,
   menuNav,
   userNav,
+  data,
 }) => {
   const [showAlert, setShowAlert] = useState(true);
 
-  const query = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  );
+  const title = data && data.site ? data.site.siteMetadata.title : 'Site title';
 
   const alertMsg =
     'Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.';
 
   return (
     <>
-      {hiddenTitle && (
-        <h1 className="title-hidden">
-          {query ? query.site.siteMetadata.title : 'Site title'}
-        </h1>
-      )}
+      {hiddenTitle && <h1 className="title-hidden">{title}</h1>}
       <Header
-        siteTitle={query ? query.site.siteMetadata.title : 'Site title'}
+        siteTitle={title}
         brandLogo={BrandLogo}
         params={params}
         onNavigate={onNavigate}
@@ -56,7 +43,7 @@ const Layout = ({
       {showAlert && (
         <div className="container">
           <Alert dismissible onDismiss={() => setShowAlert(false)}>
-            <div>{alertMsg}</div>
+            <div className="caption">{alertMsg}</div>
           </Alert>
         </div>
       )}
@@ -65,19 +52,34 @@ const Layout = ({
   );
 };
 
-Layout.propTypes = {
+PureLayout.propTypes = {
   children: PropTypes.node.isRequired,
   hiddenTitle: PropTypes.bool,
   params: PropTypes.object,
   onNavigate: PropTypes.func,
   menuNav: PropTypes.bool,
   userNav: PropTypes.bool,
+  data: PropTypes.object,
 };
 
-Layout.defaultProps = {
+PureLayout.defaultProps = {
   hiddenTitle: false,
   menuNav: false,
   userNav: false,
+  data: {},
+};
+
+export const Layout = (props) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+  return <PureLayout {...props} data={data}></PureLayout>;
 };
 
 export default Layout;
