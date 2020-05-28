@@ -224,7 +224,12 @@
 <a name='L165'></a><a href='#L165'>165</a>
 <a name='L166'></a><a href='#L166'>166</a>
 <a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -238,7 +243,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">71x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,16 +252,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,8 +272,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -285,18 +279,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -469,7 +479,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
         &lt;h2 className="mt-0 text-center"&gt;{title}&lt;/h2&gt;
         &lt;Panel className="card-container"&gt;
           &lt;Panel.Body&gt;
-            &lt;form onSubmit={handleOnSubmit}&gt;
+            &lt;form data-testid="contact-form" onSubmit={handleOnSubmit}&gt;
               &lt;Row className="extra-p-md-6"&gt;
                 &lt;Col xs={6} className="mb-46"&gt;
                   &lt;TextField
@@ -478,6 +488,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
                     onChange={handleOnChange}
                     value={state.first_name.value}
                     errorMessage={state.first_name.error}
+                    data-testid="first-name"
                   /&gt;
                 &lt;/Col&gt;
                 &lt;Col xs={6} className="mb-46"&gt;
@@ -487,6 +498,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
                     onChange={handleOnChange}
                     value={state.last_name.value}
                     errorMessage={state.last_name.error}
+                    data-testid="last-name"
                   /&gt;
                 &lt;/Col&gt;
               &lt;/Row&gt;
@@ -498,6 +510,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
                     onChange={handleOnChange}
                     value={state.email.value}
                     errorMessage={state.email.error}
+                    data-testid="email-input"
                   /&gt;
                 &lt;/Col&gt;
                 &lt;Col xs={6} className="mb-46"&gt;
@@ -507,6 +520,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
                     onChange={handleOnChange}
                     value={state.phone.value}
                     errorMessage={state.phone.error}
+                    data-testid="phone-input"
                   /&gt;
                 &lt;/Col&gt;
               &lt;/Row&gt;
@@ -519,6 +533,7 @@ const ContactForm = ({ title, onValidForm }) =&gt; {
                     onChange={handleOnChange}
                     value={state.message.value}
                     errorMessage={state.message.error}
+                    data-testid="message-input"
                   /&gt;
                 &lt;/Col&gt;
               &lt;/Row&gt;
@@ -565,7 +580,7 @@ export default ContactForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed May 27 2020 19:09:45 GMT-0500 (Colombia Standard Time)
+                at Thu May 28 2020 09:01:32 GMT-0500 (Colombia Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

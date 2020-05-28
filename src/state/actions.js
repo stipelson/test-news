@@ -29,7 +29,7 @@ export const fetchNewsError = (error) => ({
 });
 
 export function loadNews({ options, reload, urlTest }) {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch({ type: FETCH_NEWS });
 
     let params = {
@@ -59,7 +59,7 @@ export function loadNews({ options, reload, urlTest }) {
             dispatch(fetchMoreNewsSuccess(response.data.articles.results));
           else dispatch(fetchNewsSuccess(response.data.articles.results));
 
-          return response;
+          return response.data.articles.results;
         }
         // console.log('error on response');
         dispatch(fetchNewsError('error on response'));

@@ -31,11 +31,9 @@ describe('Fetch news list', () => {
   };
 
   const store = mockStore({
-    app: {
-      loading: false,
-      articles: [],
-      error: null,
-    },
+    loading: false,
+    articles: [],
+    error: null,
   });
 
   beforeAll(() => {
@@ -55,7 +53,7 @@ describe('Fetch news list', () => {
         })
       )
       .then((response) => {
-        expect(response).toEqual({ data });
+        expect(response).toEqual(data.articles.results);
 
         let options = {
           headers: {

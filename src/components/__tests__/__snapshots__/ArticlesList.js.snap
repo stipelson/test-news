@@ -3,15 +3,18 @@
 exports[`ArticlesList: render No passed articles and render correctly 1`] = `
 <div
   className="eui-row extra-p-md-6"
+  data-testid="article-list"
 />
 `;
 
 exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
 <div
   className="eui-row extra-p-md-6"
+  data-testid="article-list"
 >
   <div
     className="eui-col mb-46 eui-col-xs-6"
+    data-testid="article-item"
   >
     <section>
       <a
@@ -36,6 +39,7 @@ exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
   </div>
   <div
     className="eui-col mb-46 eui-col-xs-6"
+    data-testid="article-item"
   >
     <section>
       <a
@@ -60,6 +64,7 @@ exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
   </div>
   <div
     className="eui-col mb-46 eui-col-xs-6"
+    data-testid="article-item"
   >
     <section>
       <a
@@ -84,6 +89,7 @@ exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
   </div>
   <div
     className="eui-col mb-46 eui-col-xs-6"
+    data-testid="article-item"
   >
     <section>
       <a
@@ -112,5 +118,6 @@ exports[`ArticlesList: render Passed articles and render list correctly 1`] = `
 exports[`ArticlesList: render Row has the class 1`] = `
 <div
   className="eui-row extra-p-md-6"
+  data-testid="article-list"
 />
 `;
