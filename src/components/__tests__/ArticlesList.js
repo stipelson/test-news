@@ -1,5 +1,5 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import { create, act } from 'react-test-renderer';
 import sinon from 'sinon';
 import Row from 'emerald-ui/lib/Row';
 
@@ -7,24 +7,23 @@ import ArticlesList from '../ArticlesList';
 import ArticleItem from '../ArticleItem';
 
 describe('ArticlesList: render', () => {
-  it('No passed articles and render correctly', () => {
-    const component = create(<ArticlesList />);
+  let component;
+  let instance;
+
+  beforeAll(() => {
+    component = create(<ArticlesList />);
+    instance = component.root;
+  });
+
+  it('Render correctly without articles', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
 
     const items = instance.findAllByType(ArticleItem);
     expect(items.length).toBe(0);
   });
 
   it('Row has the class', () => {
-    const component = create(<ArticlesList />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const row = instance.findByType(Row);
     expect(row.props.className).toEqual('extra-p-md-6');
   });
@@ -40,11 +39,11 @@ describe('ArticlesList: render', () => {
 
     const articles = [article, article, article, article];
 
-    const component = create(<ArticlesList articles={articles} />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+      component.update(<ArticlesList articles={articles} />);
+    });
 
-    let instance = component.root;
+    instance = component.root;
 
     // Expected list of articles
     const items = instance.findAllByType(ArticleItem);
@@ -64,7 +63,7 @@ describe('ArticlesList: throws error when', () => {
   });
 
   it('Not-array-articles is passed to articles list', () => {
-    const articles = 'This is a string';
+    const articles = 'This is a string, no-array';
 
     create(<ArticlesList articles={articles} />);
 

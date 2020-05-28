@@ -74,7 +74,6 @@ describe('ContactForm: submit', () => {
     email_subscription: false,
   };
   let component;
-  let tree;
   let form;
   let instance;
   let textInputs;
@@ -86,8 +85,6 @@ describe('ContactForm: submit', () => {
         <ContactForm title="Contact Us" onValidForm={onSubmitMock} />
       );
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     instance = component.root;
     form = instance.findByType('form');
@@ -97,7 +94,6 @@ describe('ContactForm: submit', () => {
   });
 
   it('Contact form submit with empty values', () => {
-    let instance = component.root;
     const form = instance.findByType('form');
 
     act(() => {
@@ -330,8 +326,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
