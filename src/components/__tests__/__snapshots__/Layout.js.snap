@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index render renders correctly 1`] = `
+Array [
+  <header
+    style={
+      Object {
+        "background": "rebeccapurple",
+        "marginBottom": "1.45rem",
+      }
+    }
+  >
+    <div
+      className="eui-navbar eui-navbar-light break-at-sm fixed-at-top"
+      onClick={[Function]}
+      role="presentation"
+    >
+      <div
+        className="eui-navbar-bar"
+      >
+        <div
+          className="container display-flex"
+        >
+          <div
+            className="eui-navbar-brand"
+          >
+            <a
+              href="/"
+            >
+              <img
+                alt="Logo Default Starter"
+                src="test-file-stub"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="eui-navbar-collapsed"
+      />
+    </div>
+  </header>,
+  <div
+    className="container"
+  >
+    <div
+      className="eui-alert eui-alert-info"
+      role="alert"
+    >
+      <div
+        className="caption"
+      >
+        Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
+      </div>
+      <button
+        className="eui-icon-button"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <i
+          className="eui-icon material-icons"
+        >
+          cancel
+        </i>
+      </button>
+    </div>
+  </div>,
+  <main>
+    <div />
+  </main>,
+]
+`;

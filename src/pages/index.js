@@ -14,7 +14,7 @@ import Modal from 'emerald-ui/lib/Modal';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as searchActions from '../state/actions';
+import * as newsActions from '../state/actions';
 import { getParams } from '../lib/utils';
 import { navigate } from '@reach/router';
 
@@ -23,8 +23,8 @@ export const IndexPage = ({
   loading,
   articles,
   location,
-  menuNav = true,
-  userNav = true,
+  menuNav,
+  userNav,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
@@ -42,6 +42,10 @@ export const IndexPage = ({
   const handleValidForm = (content) => {
     setModalContent(content);
     setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   const handleLoadNews = (reload) => {
@@ -100,19 +104,12 @@ export const IndexPage = ({
         content={bannerContent}
         buttonLabel="Subscribe"
         buttonAriaLabel="Button for subscribe"
-        buttonAction={() => {
-          return false;
-        }}
+        data-test-id="view-more-button"
       />
 
       <ContactForm title="Contact Us" onValidForm={handleValidForm} />
 
-      <Modal
-        onHide={() => {
-          setShowModal(false);
-        }}
-        show={showModal}
-      >
+      <Modal onHide={closeModal} show={showModal} data-testid="modal-element">
         <Modal.Header closeButton={true}>
           <Modal.Title>Form content</Modal.Title>
         </Modal.Header>
@@ -121,11 +118,10 @@ export const IndexPage = ({
         </Modal.Body>
         <Modal.Footer>
           <Button
-            onClick={() => {
-              setShowModal(false);
-            }}
+            onClick={closeModal}
             shape="flat"
             color="primary"
+            data-testid="modal-close-button"
           >
             Ok
           </Button>
@@ -147,8 +143,13 @@ IndexPage.propTypes = {
   userNav: PropTypes.bool,
 };
 
+IndexPage.defaultProps = {
+  menuNav: true,
+  userNav: true,
+};
+
 export const mapDispatchToProps = (dispatch) => {
-  const actions = bindActionCreators(searchActions, dispatch);
+  const actions = bindActionCreators(newsActions, dispatch);
   return {
     dispatch,
     ...actions,
@@ -156,10 +157,7 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 export const mapStateToProps = (state) => ({
-  articles: state.app.articles,
-  loading: state.app.loading,
-  error: state.app.error,
+  ...state,
 });
 
-// export default IndexPage;
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

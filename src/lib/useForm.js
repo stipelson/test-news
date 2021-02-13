@@ -1,14 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-function useForm(stateSchema, validationSchema = {}, callback) {
+function useForm(stateSchema, validationSchema, callback) {
   const [state, setState] = useState(stateSchema);
-  const [disable, setDisable] = useState(true);
-  const [isDirty, setIsDirty] = useState(false);
-
-  // Disable = false on initial render.
-  useEffect(() => {
-    setDisable(true);
-  }, []);
 
   const validateRegex = (value, schema) => {
     if (schema.validator !== null && typeof schema.validator === 'object') {
@@ -18,37 +11,6 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     }
     return false;
   };
-
-  // Used to disable submit button if there's an error in state
-  // or the required field in state has no value.
-  // Wrapped in useCallback to cached the function to avoid intensive memory leaked
-  // in every re-render in component
-  const validateState = useCallback(() => {
-    const hasErrorInState = Object.keys(validationSchema).find((key) => {
-      const isInputFieldRequired = validationSchema[key].required;
-      const stateValue = state[key].value; // state value
-      const stateError = state[key].error; // state error
-
-      if ((isInputFieldRequired && !stateValue) || stateError) {
-        return true;
-      }
-
-      if (
-        validationSchema[key].validator !== null &&
-        typeof validationSchema[key].validator === 'object'
-      ) {
-        if (
-          stateValue &&
-          !validationSchema[key].validator.regEx.test(stateValue)
-        ) {
-          return true;
-        }
-      }
-
-      return false;
-    });
-    return hasErrorInState;
-  }, [state, validationSchema]);
 
   // validate on submit
   const validateStateOnSubmit = useCallback(() => {
@@ -63,13 +25,12 @@ function useForm(stateSchema, validationSchema = {}, callback) {
 
       let msgError = '';
 
-      if ((isInputFieldRequired && !stateValue) || stateError) {
+      if (validateRegex(stateValue, validationSchema[key])) {
+        msgError = validationSchema[key].validator.error;
+      } else if ((isInputFieldRequired && !stateValue) || stateError) {
         msgError = 'This is required field.';
       }
 
-      if (validateRegex(stateValue, validationSchema[key])) {
-        msgError = validationSchema[key].validator.error;
-      }
       if (msgError !== '') {
         errors++;
         setState((prevState) => ({
@@ -82,18 +43,10 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     return errors > 0;
   }, [state, validationSchema]);
 
-  // For every changed in our state this will be fired
-  // To be able to disable
-  useEffect(() => {
-    if (isDirty) {
-      setDisable(validateState());
-    }
-  }, [state, isDirty, validateState]);
-
   // Used to handle every changes in every input
   const handleOnChange = useCallback(
     (event) => {
-      setIsDirty(true);
+      // setIsDirty(true);
 
       const name = event.target.name;
       const type = event.target.type;
@@ -131,7 +84,7 @@ function useForm(stateSchema, validationSchema = {}, callback) {
     [state, callback, validateStateOnSubmit]
   );
 
-  return { state, disable, handleOnChange, handleOnSubmit };
+  return { state, handleOnChange, handleOnSubmit };
 }
 
 export default useForm;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea Change value of textarea manually 1`] = `
+exports[`TextArea renders an input default textarea 1`] = `
 <div
   className="eui-text-field  "
 >
@@ -10,13 +10,8 @@ exports[`TextArea Change value of textarea manually 1`] = `
     <textarea
       aria-errormessage="undefinedErrorMessage"
       aria-invalid={false}
-      aria-label="Message"
       className="custom-textarea"
-      name="message"
-      onChange={[MockFunction]}
       role="textbox"
-      rows="4"
-      value="Pre value"
     />
     <div
       className="eui-text-field-footer"
@@ -31,197 +26,11 @@ exports[`TextArea Change value of textarea manually 1`] = `
       />
     </div>
   </div>
-  <label>
-    Message
-  </label>
+  <label />
 </div>
 `;
 
-exports[`TextArea Change value of textarea manually 2`] = `
-<div
-  className="eui-text-field  "
->
-  <div
-    className="eui-text-field-wrapper"
-  >
-    <textarea
-      aria-errormessage="undefinedErrorMessage"
-      aria-invalid={false}
-      aria-label="Message"
-      className="custom-textarea"
-      name="message"
-      onChange={[MockFunction]}
-      role="textbox"
-      rows="4"
-      value="This is just for test"
-    />
-    <div
-      className="eui-text-field-footer"
-    >
-      <span
-        className="eui-text-field-message eui-text-field-error-message "
-        id="undefinedErrorMessage"
-        role="alert"
-      />
-      <span
-        className="eui-text-field-message eui-text-field-help-text"
-      />
-    </div>
-  </div>
-  <label>
-    Message
-  </label>
-</div>
-`;
-
-exports[`TextArea TextArea test onChange 1`] = `
-<div
-  className="eui-text-field  "
->
-  <div
-    className="eui-text-field-wrapper"
-  >
-    <textarea
-      aria-errormessage="undefinedErrorMessage"
-      aria-invalid={false}
-      aria-label="Message"
-      className="custom-textarea"
-      name="message"
-      onChange={[MockFunction]}
-      role="textbox"
-      rows="4"
-      value="Pre value"
-    />
-    <div
-      className="eui-text-field-footer"
-    >
-      <span
-        className="eui-text-field-message eui-text-field-error-message "
-        id="undefinedErrorMessage"
-        role="alert"
-      />
-      <span
-        className="eui-text-field-message eui-text-field-help-text"
-      />
-    </div>
-  </div>
-  <label>
-    Message
-  </label>
-</div>
-`;
-
-exports[`TextArea TextArea test onChange 2`] = `
-<div
-  className="eui-text-field  "
->
-  <div
-    className="eui-text-field-wrapper"
-  >
-    <textarea
-      aria-errormessage="undefinedErrorMessage"
-      aria-invalid={false}
-      aria-label="Message"
-      className="custom-textarea"
-      name="message"
-      onChange={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              Object {
-                "target": Object {
-                  "value": "This is just for test",
-                },
-              },
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        }
-      }
-      role="textbox"
-      rows="4"
-      value="Pre value"
-    />
-    <div
-      className="eui-text-field-footer"
-    >
-      <span
-        className="eui-text-field-message eui-text-field-error-message "
-        id="undefinedErrorMessage"
-        role="alert"
-      />
-      <span
-        className="eui-text-field-message eui-text-field-help-text"
-      />
-    </div>
-  </div>
-  <label>
-    Message
-  </label>
-</div>
-`;
-
-exports[`TextArea TextArea test onChange 3`] = `
-<div
-  className="eui-text-field  "
->
-  <div
-    className="eui-text-field-wrapper"
-  >
-    <textarea
-      aria-errormessage="undefinedErrorMessage"
-      aria-invalid={false}
-      aria-label="Message"
-      className="custom-textarea"
-      name="message"
-      onChange={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              Object {
-                "target": Object {
-                  "value": "This is just for test",
-                },
-              },
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        }
-      }
-      role="textbox"
-      rows="4"
-      value="This is just for test"
-    />
-    <div
-      className="eui-text-field-footer"
-    >
-      <span
-        className="eui-text-field-message eui-text-field-error-message "
-        id="undefinedErrorMessage"
-        role="alert"
-      />
-      <span
-        className="eui-text-field-message eui-text-field-help-text"
-      />
-    </div>
-  </div>
-  <label>
-    Message
-  </label>
-</div>
-`;
-
-exports[`TextArea renders textarea correctly 1`] = `
+exports[`TextArea renders textarea with data correctly 1`] = `
 <div
   className="eui-text-field  "
 >

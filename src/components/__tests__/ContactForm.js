@@ -3,44 +3,36 @@ import { create, act } from 'react-test-renderer';
 import Row from 'emerald-ui/lib/Row';
 import Col from 'emerald-ui/lib/Col';
 import TextField from 'emerald-ui/lib/TextField';
+import Checkbox from 'emerald-ui/lib/Checkbox';
 
 import ContactForm from '../ContactForm';
 
 describe('ContactForm: render', () => {
+  let component;
+  let tree;
+  let instance;
+
+  beforeAll(() => {
+    component = create(<ContactForm />);
+    tree = component.toJSON();
+    instance = component.root;
+  });
+
   it('renders contact form correctly', () => {
-    const tree = create(<ContactForm />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Section has id', () => {
-    const component = create(<ContactForm />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const section = instance.findByType('section');
     expect(section.props.id).toEqual('contact');
   });
 
   it('Content has class', () => {
-    const component = create(<ContactForm />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const content = instance.findByType('div');
     expect(content.props.className).toEqual('container');
   });
 
   it('Rows has class, except last', () => {
-    const component = create(<ContactForm />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const allRows = instance.findAllByType(Row);
 
     for (let index = 0; index < allRows.length - 1; index++) {
@@ -49,12 +41,6 @@ describe('ContactForm: render', () => {
   });
 
   it('Cols has class', () => {
-    const component = create(<ContactForm />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-
-    let instance = component.root;
-
     const allCols = instance.findAllByType(Col);
 
     for (let index = 0; index < allCols.length; index++) {
@@ -63,15 +49,13 @@ describe('ContactForm: render', () => {
   });
 
   it('Checkbox props render', () => {
-    const component = create(
-      <ContactForm title="Contact Us" onValidForm={() => {}} />
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+      component.update(<ContactForm title="Contact Us" />);
+    });
 
-    let instance = component.root;
+    let newInstance = component.root;
 
-    const title = instance.findByType('h2');
+    const title = newInstance.findByType('h2');
     expect(title.children).toEqual(['Contact Us']);
   });
 });
@@ -90,7 +74,6 @@ describe('ContactForm: submit', () => {
     email_subscription: false,
   };
   let component;
-  let tree;
   let form;
   let instance;
   let textInputs;
@@ -102,8 +85,6 @@ describe('ContactForm: submit', () => {
         <ContactForm title="Contact Us" onValidForm={onSubmitMock} />
       );
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     instance = component.root;
     form = instance.findByType('form');
@@ -113,7 +94,6 @@ describe('ContactForm: submit', () => {
   });
 
   it('Contact form submit with empty values', () => {
-    let instance = component.root;
     const form = instance.findByType('form');
 
     act(() => {
@@ -145,8 +125,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -181,8 +159,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -217,8 +193,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -252,8 +226,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -281,8 +253,6 @@ describe('ContactForm: submit', () => {
         });
       }
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -318,8 +288,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -358,8 +326,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {
@@ -373,6 +339,27 @@ describe('ContactForm: submit', () => {
     expect(phoneInput.props.errorMessage).toEqual(
       'The phone must have 10 numbers, ex: 8005555555.'
     );
+  });
+
+  it('Contact form change state checkbox', () => {
+    // Manual change input values
+    const checkInput = form.findByType(Checkbox);
+    act(() => {
+      // Change all except first_name
+      checkInput.props.onChange({
+        ...event,
+        target: {
+          name: 'email_subscription',
+          checked: true,
+          type: 'checkbox',
+          error: '',
+        },
+      });
+    });
+
+    // console.log(checkInput.props);
+    // Error message
+    expect(checkInput.props.checked).toEqual(true);
   });
 
   it('Contact form submit with correct values', () => {
@@ -413,8 +400,6 @@ describe('ContactForm: submit', () => {
         target: { name: 'message', value: 'Test message' },
       });
     });
-    tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
 
     // Submit form
     act(() => {

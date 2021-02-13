@@ -51,17 +51,16 @@ const ContactForm = ({ title, onValidForm }) => {
   };
 
   const onSubmitForm = (state) => {
-    if (state) {
-      const values = {
-        first_name: state.first_name.value,
-        last_name: state.last_name.value,
-        email: state.email.value,
-        phone: state.phone.value,
-        message: state.message.value,
-        email_subscription: state.email_subscription.value,
-      };
-      onValidForm(JSON.stringify(values, null, 2));
-    }
+    const values = {
+      first_name: state.first_name.value,
+      last_name: state.last_name.value,
+      email: state.email.value,
+      phone: state.phone.value,
+      message: state.message.value,
+      email_subscription: state.email_subscription.value,
+    };
+    onValidForm(JSON.stringify(values, null, 2));
+
     return true;
   };
 
@@ -77,7 +76,7 @@ const ContactForm = ({ title, onValidForm }) => {
         <h2 className="mt-0 text-center">{title}</h2>
         <Panel className="card-container">
           <Panel.Body>
-            <form onSubmit={handleOnSubmit}>
+            <form data-testid="contact-form" onSubmit={handleOnSubmit}>
               <Row className="extra-p-md-6">
                 <Col xs={6} className="mb-46">
                   <TextField
@@ -86,6 +85,7 @@ const ContactForm = ({ title, onValidForm }) => {
                     onChange={handleOnChange}
                     value={state.first_name.value}
                     errorMessage={state.first_name.error}
+                    data-testid="first-name"
                   />
                 </Col>
                 <Col xs={6} className="mb-46">
@@ -95,6 +95,7 @@ const ContactForm = ({ title, onValidForm }) => {
                     onChange={handleOnChange}
                     value={state.last_name.value}
                     errorMessage={state.last_name.error}
+                    data-testid="last-name"
                   />
                 </Col>
               </Row>
@@ -106,6 +107,7 @@ const ContactForm = ({ title, onValidForm }) => {
                     onChange={handleOnChange}
                     value={state.email.value}
                     errorMessage={state.email.error}
+                    data-testid="email-input"
                   />
                 </Col>
                 <Col xs={6} className="mb-46">
@@ -115,6 +117,7 @@ const ContactForm = ({ title, onValidForm }) => {
                     onChange={handleOnChange}
                     value={state.phone.value}
                     errorMessage={state.phone.error}
+                    data-testid="phone-input"
                   />
                 </Col>
               </Row>
@@ -127,6 +130,7 @@ const ContactForm = ({ title, onValidForm }) => {
                     onChange={handleOnChange}
                     value={state.message.value}
                     errorMessage={state.message.error}
+                    data-testid="message-input"
                   />
                 </Col>
               </Row>
@@ -134,6 +138,7 @@ const ContactForm = ({ title, onValidForm }) => {
                 label="Send me emails about breaking news and promotions."
                 className="mt-0 mb-46"
                 name="email_subscription"
+                checked={state.email_subscription.value}
                 onChange={handleOnChange}
               />
               <div className="text-center submit-button">

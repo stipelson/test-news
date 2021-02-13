@@ -8,6 +8,25 @@ import DropdownButton from 'emerald-ui/lib/DropdownButton';
 import Avatar from 'emerald-ui/lib/Avatar';
 // import { getParams } from '../lib/utils';
 
+export const sections = [
+  {
+    topicId: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
+    name: 'Health',
+  },
+  {
+    topicId: '240f6a12-b9d8-40a6-b1c6-a220e31d08de',
+    name: 'Renewable Energy',
+  },
+  {
+    topicId: 'b220679c-95ff-4e4e-a1fa-ad8b3905b7df',
+    name: 'Cyber Security',
+  },
+  {
+    topicId: 'c4277484-5aca-4db8-8c30-72ca9aac3ed3',
+    name: 'Technology',
+  },
+];
+
 const Header = ({
   siteTitle,
   brandLogo,
@@ -16,25 +35,6 @@ const Header = ({
   menuNav,
   userNav,
 }) => {
-  const sections = [
-    {
-      topicId: '5dfccaa7-e8ab-4044-8355-b6bebba95499',
-      name: 'Health',
-    },
-    {
-      topicId: '240f6a12-b9d8-40a6-b1c6-a220e31d08de',
-      name: 'Renewable Energy',
-    },
-    {
-      topicId: 'b220679c-95ff-4e4e-a1fa-ad8b3905b7df',
-      name: 'Cyber Security',
-    },
-    {
-      topicId: 'c4277484-5aca-4db8-8c30-72ca9aac3ed3',
-      name: 'Technology',
-    },
-  ];
-
   const handleOnClick = (category) => {
     onNavigate(category);
   };
@@ -51,6 +51,7 @@ const Header = ({
               eventKey="2"
               onClick={() => handleOnClick(section.topicId)}
               active={categoryParam === section.topicId}
+              data-testid="section-action"
             >
               {section.name}
             </DropdownItem>

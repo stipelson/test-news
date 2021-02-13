@@ -52,7 +52,9 @@ Array [
       className="eui-alert eui-alert-info"
       role="alert"
     >
-      <div>
+      <div
+        className="caption"
+      >
         Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.
       </div>
       <button
@@ -85,6 +87,7 @@ Array [
         >
           <div
             className="eui-row extra-p-md-6"
+            data-testid="article-list"
           />
         </div>
       </div>
@@ -179,6 +182,7 @@ Array [
             className="eui-panel-body"
           >
             <form
+              data-testid="contact-form"
               onSubmit={[Function]}
             >
               <div
@@ -197,6 +201,7 @@ Array [
                         aria-errormessage="undefinedErrorMessage"
                         aria-invalid={false}
                         aria-label="First Name"
+                        data-testid="first-name"
                         disabled={false}
                         name="first_name"
                         onChange={[Function]}
@@ -238,6 +243,7 @@ Array [
                         aria-errormessage="undefinedErrorMessage"
                         aria-invalid={false}
                         aria-label="Last Name"
+                        data-testid="last-name"
                         disabled={false}
                         name="last_name"
                         onChange={[Function]}
@@ -283,6 +289,7 @@ Array [
                         aria-errormessage="undefinedErrorMessage"
                         aria-invalid={false}
                         aria-label="Email"
+                        data-testid="email-input"
                         disabled={false}
                         name="email"
                         onChange={[Function]}
@@ -324,6 +331,7 @@ Array [
                         aria-errormessage="undefinedErrorMessage"
                         aria-invalid={false}
                         aria-label="Phone Number"
+                        data-testid="phone-input"
                         disabled={false}
                         name="phone"
                         onChange={[Function]}
@@ -371,6 +379,7 @@ Array [
                         aria-invalid={false}
                         aria-label="Message"
                         className="custom-textarea"
+                        data-testid="message-input"
                         name="message"
                         onChange={[Function]}
                         role="textbox"
@@ -402,6 +411,7 @@ Array [
                 className="eui-checkbox mt-0 mb-46 eui-has-label"
               >
                 <input
+                  checked={false}
                   className="eui-checkbox-input"
                   name="email_subscription"
                   onBlur={[Function]}

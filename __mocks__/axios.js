@@ -5,7 +5,13 @@ export default axiosFetch; */
 
 let __value = { data: {} };
 const axios = {
-  get: jest.fn(() => Promise.resolve(__value)),
+  get: jest.fn((url) => {
+    if (url !== 'Test error') {
+      return Promise.resolve(__value);
+    }
+    // console.log('error from axios')
+    throw 'Bad url';
+  }),
   create: () => axios,
   defaults: {
     adapter: {},

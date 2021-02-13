@@ -5,13 +5,13 @@ import {
   FETCH_MORE_SUCCESS,
 } from './contants';
 
-const initialState = {
+export const initialState = {
   loading: false,
   articles: [],
   error: null,
 };
 
-export default (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_NEWS:
       return { ...state, loading: true };
@@ -32,4 +32,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-};
+}

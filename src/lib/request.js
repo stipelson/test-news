@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const request = async ({ url, options = {} }) => {
-  let fetchUrl = url;
-
+const request = async ({ url, options }) => {
   let config = {
     headers: {
       Accept: 'application/json',
@@ -11,7 +9,7 @@ const request = async ({ url, options = {} }) => {
     params: options.params,
   };
 
-  return axios.get(fetchUrl, config);
+  return axios.get(url, config);
 };
 
 export default request;
